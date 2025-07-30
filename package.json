@@ -20,13 +20,18 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38"
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.4.38",
+    "typescript": "^4.9.5"
   },
+  "homepage": "https://bgasimzade99.github.io/my-portfolio",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
