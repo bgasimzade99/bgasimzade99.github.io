@@ -1,0 +1,16 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "subtitle": "Frontend Developer"
+  },
+  "about": {
+    "title": "About Me",
+    "desc": "I'm a passionate web developer with experience in React and UI/UX design."
+  }
+}

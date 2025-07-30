@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./i18n";
+import { useTranslation } from "react-i18next";
 
-function App() {
+import Navbar from "./components/Navbar.jsx";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Projects from "./components/Projects.jsx";
+import Skills from "./components/Skills";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+
+export default function App() {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng) => i18n.changeLanguage(lng);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white flex flex-col">
+      <Navbar changeLanguage={changeLanguage} currentLang={i18n.language} />
+      <main className="flex-grow container mx-auto px-6 py-10">
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
-
-export default App;

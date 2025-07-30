@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "title": "Salam, mən Babək Qasımzadə, Junior Mobil və Frontend Developer",
+    "subtitle": "Müasir, responsive və sürətli veb və mobil tətbiqlər yaradıram.",
+    "cta": "Əlaqə saxla"
+  },
+  "about": {
+    "title": "Haqqımda",
+    "description": "Peşəkar Frontend və Mobil Tətbiq Tərtibatçısıyam – React, React Native, Tailwind CSS və JavaScript texnologiyaları ilə yüksək performanslı, adaptiv və müasir veb və mobil tətbiqlər hazırlayıram. İstifadəçi təcrübəsini ön planda tutaraq, estetik və funksional interfeyslər qurmaqda ixtisaslaşmışam."
+  },
+  "projects": {
+    "title": "Layihələr",
+    "project1": {
+      "title": "Portfolio Saytı",
+      "description": "React və Tailwind CSS ilə hazırlanmış təmiz və müasir portfolio."
+    },
+    "project2": {
+      "title": "Udemy Klonu",
+      "description": "React hook-ları və localStorage dəstəyi ilə sadə todo tətbiqi."
+    }
+  },
+  "skills": {
+    "title": "Bacarıqlarım"
+  },
+  "contact": {
+    "title": "Əlaqə",
+    "name": "Adınız",
+    "email": "E-poçtunuz",
+    "message": "Mesajınız",
+    "send": "Göndər",
+    "alert": "Mesajınız üçün təşəkkürlər! Tezliklə sizə cavab verəcəm."
+  }
+}
