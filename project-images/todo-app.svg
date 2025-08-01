@@ -1,0 +1,97 @@
+<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF7F00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#F8FAFF;stop-opacity:0.9" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="300" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Background Pattern -->
+  <defs>
+    <pattern id="checkmarks" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M10 30 L25 45 L50 15" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="500" height="300" fill="url(#checkmarks)"/>
+  
+  <!-- Floating Elements -->
+  <circle cx="100" cy="80" r="3" fill="rgba(255,255,255,0.6)" filter="url(#glow)"/>
+  <circle cx="400" cy="120" r="2" fill="rgba(255,255,255,0.4)" filter="url(#glow)"/>
+  <circle cx="350" cy="200" r="4" fill="rgba(255,255,255,0.3)" filter="url(#glow)"/>
+  
+  <!-- Main Todo List -->
+  <g transform="translate(250,150)">
+    <!-- Header -->
+    <rect x="-80" y="-60" width="160" height="30" fill="url(#cardGradient)" rx="8" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <text x="0" y="-42" font-family="Arial, sans-serif" font-size="14" fill="#FF6900" text-anchor="middle" font-weight="bold">Todo List</text>
+    
+    <!-- Task Items -->
+    <g transform="translate(0,-20)">
+      <!-- Task 1 - Completed -->
+      <rect x="-70" y="-15" width="140" height="25" fill="url(#cardGradient)" rx="6" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <circle cx="-60" cy="-2" r="6" fill="#10B981" stroke="#10B981" stroke-width="2"/>
+      <path d="M-63 -2 L-60 1 L-57 -5" stroke="white" stroke-width="2" fill="none"/>
+      <text x="-50" y="3" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="start">Buy groceries</text>
+      <text x="60" y="3" font-family="Arial, sans-serif" font-size="10" fill="#6B7280" text-anchor="end">✓</text>
+      
+      <!-- Task 2 - Pending -->
+      <rect x="-70" y="15" width="140" height="25" fill="url(#cardGradient)" rx="6" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <circle cx="-60" cy="28" r="6" fill="none" stroke="#FF6900" stroke-width="2"/>
+      <text x="-50" y="33" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="start">Call client</text>
+      <text x="60" y="33" font-family="Arial, sans-serif" font-size="10" fill="#6B7280" text-anchor="end">⏰</text>
+      
+      <!-- Task 3 - Pending -->
+      <rect x="-70" y="45" width="140" height="25" fill="url(#cardGradient)" rx="6" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <circle cx="-60" cy="58" r="6" fill="none" stroke="#FF6900" stroke-width="2"/>
+      <text x="-50" y="63" font-family="Arial, sans-serif" font-size="12" fill="#374151" text-anchor="start">Review code</text>
+      <text x="60" y="63" font-family="Arial, sans-serif" font-size="10" fill="#6B7280" text-anchor="end">💻</text>
+    </g>
+    
+    <!-- Add Button -->
+    <circle cx="0" cy="85" r="15" fill="#FF6900" stroke="white" stroke-width="2"/>
+    <text x="0" y="90" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle">+</text>
+  </g>
+  
+  <!-- Progress Bar -->
+  <g transform="translate(250,80)">
+    <rect x="-60" y="-5" width="120" height="10" fill="rgba(255,255,255,0.2)" rx="5"/>
+    <rect x="-60" y="-5" width="80" height="10" fill="#10B981" rx="5"/>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">1/3 Completed</text>
+  </g>
+  
+  <!-- Text -->
+  <text x="250" y="40" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">Todo List App</text>
+  <text x="250" y="60" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle">Task Management Application</text>
+  
+  <!-- Tech Stack Icons -->
+  <g transform="translate(250,280)">
+    <rect x="-60" y="-8" width="16" height="16" fill="#F7DF1E" rx="2"/>
+    <text x="-52" y="2" font-family="Arial, sans-serif" font-size="8" fill="black" text-anchor="middle">JS</text>
+    
+    <rect x="-40" y="-8" width="16" height="16" fill="#FF6900" rx="2"/>
+    <text x="-32" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">LS</text>
+    
+    <rect x="-20" y="-8" width="16" height="16" fill="#FF6900" rx="2"/>
+    <text x="-12" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">DOM</text>
+    
+    <rect x="0" y="-8" width="16" height="16" fill="#FF6900" rx="2"/>
+    <text x="8" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">TM</text>
+    
+    <rect x="20" y="-8" width="16" height="16" fill="#FF6900" rx="2"/>
+    <text x="28" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">A</text>
+  </g>
+</svg> 

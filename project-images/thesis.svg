@@ -1,0 +1,125 @@
+<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF7F00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#F8FAFF;stop-opacity:0.9" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="300" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Background Pattern -->
+  <defs>
+    <pattern id="hexagons" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M25 0 L35 15 L35 35 L25 50 L15 35 L15 15 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="500" height="300" fill="url(#hexagons)"/>
+  
+  <!-- Floating Elements -->
+  <circle cx="100" cy="80" r="3" fill="rgba(255,255,255,0.6)" filter="url(#glow)"/>
+  <circle cx="400" cy="120" r="2" fill="rgba(255,255,255,0.4)" filter="url(#glow)"/>
+  <circle cx="350" cy="200" r="4" fill="rgba(255,255,255,0.3)" filter="url(#glow)"/>
+  
+  <!-- Main Neural Network -->
+  <g transform="translate(250,150)">
+    <!-- Input Layer -->
+    <g transform="translate(-120,0)">
+      <circle cx="0" cy="-30" r="8" fill="#FF6900" stroke="white" stroke-width="2"/>
+      <circle cx="0" cy="0" r="8" fill="#FF6900" stroke="white" stroke-width="2"/>
+      <circle cx="0" cy="30" r="8" fill="#FF6900" stroke="white" stroke-width="2"/>
+      <text x="0" y="60" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Input</text>
+    </g>
+    
+    <!-- Hidden Layer -->
+    <g transform="translate(0,0)">
+      <circle cx="0" cy="-40" r="8" fill="#FF7F00" stroke="white" stroke-width="2"/>
+      <circle cx="0" cy="-20" r="8" fill="#FF7F00" stroke="white" stroke-width="2"/>
+      <circle cx="0" cy="0" r="8" fill="#FF7F00" stroke="white" stroke-width="2"/>
+      <circle cx="0" cy="20" r="8" fill="#FF7F00" stroke="white" stroke-width="2"/>
+      <circle cx="0" cy="40" r="8" fill="#FF7F00" stroke="white" stroke-width="2"/>
+      <text x="0" y="70" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Hidden</text>
+    </g>
+    
+    <!-- Output Layer -->
+    <g transform="translate(120,0)">
+      <circle cx="0" cy="-20" r="8" fill="#FF6900" stroke="white" stroke-width="2"/>
+      <circle cx="0" cy="20" r="8" fill="#FF6900" stroke="white" stroke-width="2"/>
+      <text x="0" y="50" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Output</text>
+    </g>
+    
+    <!-- Connections -->
+    <g stroke="rgba(255,255,255,0.6)" stroke-width="1">
+      <!-- Input to Hidden -->
+      <line x1="-112" y1="-30" x2="-8" y2="-40"/>
+      <line x1="-112" y1="-30" x2="-8" y2="-20"/>
+      <line x1="-112" y1="-30" x2="-8" y2="0"/>
+      <line x1="-112" y1="-30" x2="-8" y2="20"/>
+      <line x1="-112" y1="-30" x2="-8" y2="40"/>
+      
+      <line x1="-112" y1="0" x2="-8" y2="-40"/>
+      <line x1="-112" y1="0" x2="-8" y2="-20"/>
+      <line x1="-112" y1="0" x2="-8" y2="0"/>
+      <line x1="-112" y1="0" x2="-8" y2="20"/>
+      <line x1="-112" y1="0" x2="-8" y2="40"/>
+      
+      <line x1="-112" y1="30" x2="-8" y2="-40"/>
+      <line x1="-112" y1="30" x2="-8" y2="-20"/>
+      <line x1="-112" y1="30" x2="-8" y2="0"/>
+      <line x1="-112" y1="30" x2="-8" y2="20"/>
+      <line x1="-112" y1="30" x2="-8" y2="40"/>
+      
+      <!-- Hidden to Output -->
+      <line x1="8" y1="-40" x2="112" y2="-20"/>
+      <line x1="8" y1="-40" x2="112" y2="20"/>
+      <line x1="8" y1="-20" x2="112" y2="-20"/>
+      <line x1="8" y1="-20" x2="112" y2="20"/>
+      <line x1="8" y1="0" x2="112" y2="-20"/>
+      <line x1="8" y1="0" x2="112" y2="20"/>
+      <line x1="8" y1="20" x2="112" y2="-20"/>
+      <line x1="8" y1="20" x2="112" y2="20"/>
+      <line x1="8" y1="40" x2="112" y2="-20"/>
+      <line x1="8" y1="40" x2="112" y2="20"/>
+    </g>
+  </g>
+  
+  <!-- Recommendation Icons -->
+  <g transform="translate(250,80)">
+    <!-- Star Icon -->
+    <path d="M-10 -10 L-2 -2 L10 -10 L2 2 L10 10 L-2 2 L-10 10 Z" fill="rgba(255,255,255,0.9)"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="250" y="40" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">Thesis</text>
+  <text x="250" y="60" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle">E-Recommendation System</text>
+  
+  <!-- Tech Stack Icons -->
+  <g transform="translate(250,280)">
+    <rect x="-60" y="-8" width="16" height="16" fill="#3776AB" rx="2"/>
+    <text x="-52" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">P</text>
+    
+    <rect x="-40" y="-8" width="16" height="16" fill="#000000" rx="2"/>
+    <text x="-32" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">F</text>
+    
+    <rect x="-20" y="-8" width="16" height="16" fill="#FF6900" rx="2"/>
+    <text x="-12" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">ML</text>
+    
+    <rect x="0" y="-8" width="16" height="16" fill="#FF6900" rx="2"/>
+    <text x="8" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">R</text>
+    
+    <rect x="20" y="-8" width="16" height="16" fill="#FF6900" rx="2"/>
+    <text x="28" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">S</text>
+  </g>
+</svg> 

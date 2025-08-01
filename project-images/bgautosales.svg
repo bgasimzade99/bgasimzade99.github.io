@@ -1,0 +1,88 @@
+<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F79FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#347DFE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="carGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#F8FAFF;stop-opacity:0.7" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="300" fill="url(#bgGradient)"/>
+  
+  <!-- Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="500" height="300" fill="url(#grid)"/>
+  
+  <!-- Floating Elements -->
+  <circle cx="100" cy="80" r="3" fill="rgba(255,255,255,0.6)" filter="url(#glow)"/>
+  <circle cx="400" cy="120" r="2" fill="rgba(255,255,255,0.4)" filter="url(#glow)"/>
+  <circle cx="350" cy="200" r="4" fill="rgba(255,255,255,0.3)" filter="url(#glow)"/>
+  
+  <!-- Main Car Icon -->
+  <g transform="translate(250,150)">
+    <!-- Car Body -->
+    <path d="M-60 -30 L60 -30 Q80 -30 80 -10 L80 10 Q80 30 60 30 L-60 30 Q-80 30 -80 10 L-80 -10 Q-80 -30 -60 -30 Z" 
+          fill="url(#carGradient)" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+    
+    <!-- Car Windows -->
+    <rect x="-50" y="-20" width="40" height="15" fill="rgba(59,130,246,0.8)" rx="2"/>
+    <rect x="10" y="-20" width="40" height="15" fill="rgba(59,130,246,0.8)" rx="2"/>
+    
+    <!-- Car Wheels -->
+    <circle cx="-35" cy="25" r="8" fill="#1F2937" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+    <circle cx="35" cy="25" r="8" fill="#1F2937" stroke="rgba(255,255,255,0.6)" stroke-width="1"/>
+    <circle cx="-35" cy="25" r="4" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="35" cy="25" r="4" fill="rgba(255,255,255,0.3)"/>
+    
+    <!-- Headlights -->
+    <circle cx="-65" cy="-10" r="3" fill="#FCD34D"/>
+    <circle cx="65" cy="-10" r="3" fill="#FCD34D"/>
+  </g>
+  
+  <!-- E-commerce Elements -->
+  <g transform="translate(250,220)">
+    <!-- Shopping Cart -->
+    <rect x="-15" y="-8" width="30" height="16" fill="rgba(255,255,255,0.9)" rx="3"/>
+    <circle cx="-8" cy="12" r="3" fill="rgba(255,255,255,0.9)"/>
+    <circle cx="8" cy="12" r="3" fill="rgba(255,255,255,0.9)"/>
+    <rect x="-12" y="-4" width="24" height="2" fill="#4F79FF"/>
+    <rect x="-10" y="-1" width="20" height="2" fill="#4F79FF"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="250" y="50" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">BGAutoSales</text>
+  <text x="250" y="75" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle">E-Commerce Platform</text>
+  
+  <!-- Tech Stack Icons -->
+  <g transform="translate(250,280)">
+    <rect x="-60" y="-8" width="16" height="16" fill="#E34F26" rx="2"/>
+    <text x="-52" y="2" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">H</text>
+    
+    <rect x="-40" y="-8" width="16" height="16" fill="#1572B6" rx="2"/>
+    <text x="-32" y="2" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">C</text>
+    
+    <rect x="-20" y="-8" width="16" height="16" fill="#F7DF1E" rx="2"/>
+    <text x="-12" y="2" font-family="Arial, sans-serif" font-size="10" fill="black" text-anchor="middle">JS</text>
+    
+    <rect x="0" y="-8" width="16" height="16" fill="#7952B3" rx="2"/>
+    <text x="8" y="2" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">R</text>
+    
+    <rect x="20" y="-8" width="16" height="16" fill="#06B6D4" rx="2"/>
+    <text x="28" y="2" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">T</text>
+  </g>
+</svg> 
