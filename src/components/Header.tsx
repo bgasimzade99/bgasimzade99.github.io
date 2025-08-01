@@ -89,7 +89,7 @@ const Header = () => {
                 BGDev
               </span>
               <span className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                Welcome to my portfolio
+                {t('hero.welcome')}
               </span>
             </div>
           </motion.button>
@@ -165,12 +165,17 @@ const Header = () => {
 
             {/* Theme Toggle */}
             <motion.button
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
               onClick={toggleTheme}
               className={`p-2 rounded-lg ${isDark ? 'bg-white/10 hover:bg-white/20' : 'bg-gray-100 hover:bg-gray-200'} backdrop-blur-sm border ${isDark ? 'border-white/20' : 'border-gray-200'} transition-colors duration-200`}
             >
-              {isDark ? <Sun size={20} className="text-white" /> : <Moon size={20} className="text-gray-700" />}
+              <motion.div
+                animate={{ rotate: isDark ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isDark ? <Sun size={20} className="text-white" /> : <Moon size={20} className="text-gray-700" />}
+              </motion.div>
             </motion.button>
 
             {/* CTA Button */}

@@ -53,25 +53,76 @@ const Hero = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.3),transparent_50%)]" />
       </div>
 
-      {/* Mouse Tracking Particles */}
-      {particles.map((_, index) => (
-        <motion.div
-          key={index}
-          className="absolute w-1 h-1 bg-blue-400 rounded-full pointer-events-none"
-          animate={{
-            x: mousePosition.x + Math.sin(index * 0.5) * 50,
-            y: mousePosition.y + Math.cos(index * 0.5) * 50,
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            delay: index * 0.1,
-            ease: "easeOut"
-          }}
-        />
-      ))}
+             {/* Enhanced Mouse Tracking Particles */}
+       {particles.map((_, index) => (
+         <motion.div
+           key={index}
+           className="absolute w-1 h-1 bg-blue-400 rounded-full pointer-events-none"
+           animate={{
+             x: mousePosition.x + Math.sin(index * 0.5) * 50,
+             y: mousePosition.y + Math.cos(index * 0.5) * 50,
+             opacity: [0, 1, 0],
+             scale: [0, 1, 0],
+           }}
+           transition={{
+             duration: 2,
+             repeat: Infinity,
+             delay: index * 0.1,
+             ease: "easeOut"
+           }}
+         />
+       ))}
+
+       {/* Floating Code Elements */}
+       <motion.div
+         animate={{
+           y: [0, -30, 0],
+           rotate: [0, 5, 0],
+           opacity: [0.3, 0.7, 0.3],
+         }}
+         transition={{
+           duration: 8,
+           repeat: Infinity,
+           ease: "easeInOut"
+         }}
+         className="absolute top-32 left-10 text-blue-400/30 text-sm font-mono pointer-events-none"
+       >
+         &lt;React /&gt;
+       </motion.div>
+
+       <motion.div
+         animate={{
+           y: [0, 20, 0],
+           rotate: [0, -5, 0],
+           opacity: [0.3, 0.7, 0.3],
+         }}
+         transition={{
+           duration: 10,
+           repeat: Infinity,
+           ease: "easeInOut",
+           delay: 2
+         }}
+         className="absolute top-64 right-16 text-purple-400/30 text-sm font-mono pointer-events-none"
+       >
+         {`{ code }`}
+       </motion.div>
+
+       <motion.div
+         animate={{
+           y: [0, -15, 0],
+           rotate: [0, 3, 0],
+           opacity: [0.2, 0.6, 0.2],
+         }}
+         transition={{
+           duration: 12,
+           repeat: Infinity,
+           ease: "easeInOut",
+           delay: 4
+         }}
+         className="absolute bottom-32 left-20 text-pink-400/30 text-sm font-mono pointer-events-none"
+       >
+         &lt;/&gt;
+       </motion.div>
 
       {/* Floating Elements */}
       <motion.div
@@ -110,49 +161,60 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
-            {/* Welcome Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30"
-            >
+                         {/* Welcome Badge */}
+             <motion.div
+               initial={{ opacity: 0, scale: 0.8 }}
+               animate={{ opacity: 1, scale: 1 }}
+               transition={{ duration: 1.2, delay: 0.5 }}
+               className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30"
+             >
               <Sparkles size={16} className="text-blue-400" />
               <span className={`text-sm font-medium ${isDark ? 'text-blue-300' : 'text-blue-600'}`}>
-                Welcome to my portfolio
+                {t('hero.welcome')}
               </span>
             </motion.div>
 
-            {/* Main Title */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}
-            >
-              {t('hero.title')}
-              <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent text-lg sm:text-xl md:text-2xl lg:text-3xl mt-2">
-                {t('hero.subtitle')}
-              </span>
-            </motion.h1>
+                         {/* Main Title with Typewriter Effect */}
+                           <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.5, delay: 1.0 }}
+                className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}
+              >
+                               <span className={`${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  {t('hero.title')}
+                </span>
+                                 <motion.div
+                   initial={{ opacity: 0, scale: 0.8 }}
+                   animate={{ opacity: 1, scale: 1 }}
+                   transition={{ duration: 1.2, delay: 2.5 }}
+                   className="block bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent text-lg sm:text-xl md:text-2xl lg:text-3xl mt-2"
+                 >
+                  <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                    {t('hero.subtitle')}
+                  </span>
+                </motion.div>
+             </motion.h1>
 
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className={`text-base md:text-lg leading-relaxed max-w-2xl ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
-            >
-              I develop web and mobile applications with React, React Native and modern technologies.
-            </motion.p>
+                           {/* Animated Description */}
+                             <motion.div
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 1.2, delay: 4.0 }}
+                 className={`text-base md:text-lg leading-relaxed max-w-2xl ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
+               >
+                <span className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                  {t('hero.description')}
+                </span>
+              </motion.div>
 
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-            >
+                         {/* CTA Buttons */}
+                           <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 5.5 }}
+                className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+              >
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -185,13 +247,13 @@ const Hero = () => {
               </motion.button>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex space-x-6"
-            >
+                         {/* Social Links */}
+                           <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 6.5 }}
+                className="flex space-x-6"
+              >
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
@@ -226,12 +288,12 @@ const Hero = () => {
           </motion.div>
 
           {/* Right Content - Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:justify-end"
-          >
+                     <motion.div
+             initial={{ opacity: 0, x: 50 }}
+             animate={{ opacity: 1, x: 0 }}
+             transition={{ duration: 1.5, delay: 2.0 }}
+             className="flex justify-center lg:justify-end"
+           >
             <div className="relative">
               {/* Glowing Background */}
               <motion.div
@@ -247,32 +309,32 @@ const Hero = () => {
                 className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-3xl blur-3xl"
               />
               
-              {/* Image Container */}
-              <motion.div
-                whileHover={{ scale: 1.05, rotateY: 5 }}
-                transition={{ duration: 0.3 }}
-                className="relative"
-              >
-                <motion.img
-                  src={process.env.PUBLIC_URL + '/me2.jpg'}
-                  alt="Babak Gasimzade"
-                  className="w-96 h-96 rounded-3xl object-cover shadow-2xl border-4 border-white/20"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  onError={(e) => {
-                    console.log('Image failed to load:', e);
-                    e.target.style.display = 'none';
-                  }}
-                />
+                             {/* Image Container */}
+               <motion.div
+                 whileHover={{ scale: 1.05, rotateY: 5 }}
+                 transition={{ duration: 0.3 }}
+                 className="relative"
+               >
+                                                      <motion.img
+                     src={process.env.PUBLIC_URL + '/me2.jpg'}
+                     alt="Babak Gasimzade"
+                     className="w-96 h-96 rounded-3xl object-cover shadow-2xl border-4 border-white/20"
+                     initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
+                     animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                     transition={{ duration: 1.5, delay: 3.5, type: "spring", stiffness: 80 }}
+                     onError={(e) => {
+                       console.log('Image failed to load:', e);
+                       e.target.style.display = 'none';
+                     }}
+                   />
                 
-                {/* Floating Badge */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                  className="absolute -top-4 -right-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg"
-                >
+                                 {/* Floating Badge */}
+                                   <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.2, delay: 5.0 }}
+                    className="absolute -top-4 -right-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg"
+                  >
                   <div className="flex items-center space-x-2">
                     <Sparkles size={16} className="text-yellow-300" />
                     <span className="text-white font-semibold text-sm">
@@ -286,25 +348,37 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center"
+             {/* Enhanced Scroll Indicator */}
+               <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 7.5 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
-          />
-        </motion.div>
-      </motion.div>
+         <motion.div
+           animate={{ 
+             y: [0, 10, 0],
+             scale: [1, 1.1, 1]
+           }}
+           transition={{ duration: 2, repeat: Infinity }}
+           className="w-6 h-10 border-2 border-blue-400 rounded-full flex justify-center cursor-pointer"
+           whileHover={{ scale: 1.2 }}
+         >
+           <motion.div
+             animate={{ y: [0, 12, 0] }}
+             transition={{ duration: 2, repeat: Infinity }}
+             className="w-1 h-3 bg-blue-400 rounded-full mt-2"
+           />
+         </motion.div>
+                   <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 8.0 }}
+            className="text-center text-blue-400 text-sm mt-2 font-medium"
+          >
+           Scroll Down
+         </motion.p>
+       </motion.div>
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, useAnimation, useInView, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, X, ArrowRight, Sparkles, Filter, Eye } from "lucide-react";
+import { ExternalLink, Github, X, ArrowRight, Sparkles, Filter, Eye, Smartphone } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext.tsx";
 import { useTheme } from "../contexts/ThemeContext.tsx";
 
@@ -22,11 +22,12 @@ const Portfolio = () => {
   }, [isInView, controls]);
 
   const categories = [
-    { id: 'all', label: t('portfolio.all'), icon: Filter },
-    { id: 'web', label: t('portfolio.web'), icon: ExternalLink },
-    { id: 'mobile', label: t('portfolio.mobile'), icon: Eye },
-    { id: 'fullstack', label: t('portfolio.fullstack'), icon: Sparkles }
-  ];
+  { id: 'all', label: t('portfolio.all'), icon: Filter },
+  { id: 'web', label: t('portfolio.web'), icon: ExternalLink },
+  { id: 'mobile', label: t('portfolio.mobile'), icon: Smartphone },
+  { id: 'responsive', label: t('portfolio.responsive'), icon: Eye },
+  { id: 'interactive', label: t('portfolio.interactive'), icon: Sparkles }
+];
 
   const projects = [
     {
@@ -34,66 +35,99 @@ const Portfolio = () => {
       title: t('portfolio.project1.title'),
       description: t('portfolio.project1.desc'),
       category: 'web',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+      image: '/project-images/bgautosales.svg',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'E-commerce', 'Responsive Design'],
       features: [t('portfolio.project1.feature1'), t('portfolio.project1.feature2'), t('portfolio.project1.feature3')],
-      liveUrl: '#',
-      githubUrl: '#'
+      liveUrl: 'https://www.bgdev.dev/BGAutoSales/',
+      githubUrl: 'https://github.com/bgasimzade99/BGAutoSales'
     },
     {
       id: 2,
       title: t('portfolio.project2.title'),
       description: t('portfolio.project2.desc'),
       category: 'mobile',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=300&fit=crop',
-      technologies: ['React Native', 'Expo', 'Firebase'],
+      image: '/project-images/buldum-app.svg',
+      technologies: ['React Native', 'Expo', 'JavaScript', 'API Integration', 'Mobile UI'],
       features: [t('portfolio.project2.feature1'), t('portfolio.project2.feature2'), t('portfolio.project2.feature3')],
-      liveUrl: '#',
-      githubUrl: '#'
+      liveUrl: 'https://github.com/Bayturan/buldum-app',
+      githubUrl: 'https://github.com/Bayturan/buldum-app'
     },
     {
       id: 3,
       title: t('portfolio.project3.title'),
       description: t('portfolio.project3.desc'),
-      category: 'fullstack',
-      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=500&h=300&fit=crop',
-      technologies: ['React', 'Node.js', 'MongoDB'],
+      category: 'web',
+      image: '/project-images/udemy-clone.svg',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Full Stack', 'REST API'],
       features: [t('portfolio.project3.feature1'), t('portfolio.project3.feature2'), t('portfolio.project3.feature3')],
-      liveUrl: '#',
-      githubUrl: '#'
+      liveUrl: 'https://github.com/bgasimzade99/UDEMY-BG',
+      githubUrl: 'https://github.com/bgasimzade99/UDEMY-BG'
     },
     {
       id: 4,
       title: t('portfolio.project4.title'),
       description: t('portfolio.project4.desc'),
-      category: 'web',
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=300&fit=crop',
-      technologies: ['Next.js', 'TypeScript', 'Prisma'],
+      category: 'mobile',
+      image: '/vesh.png',
+      technologies: ['React Native', 'Mobile UI', 'Play Store', '80k Users'],
       features: [t('portfolio.project4.feature1'), t('portfolio.project4.feature2'), t('portfolio.project4.feature3')],
-      liveUrl: '#',
-      githubUrl: '#'
+      liveUrl: 'https://play.google.com/store/apps/details?id=com.vesh&pcampaignid=web_share',
+      githubUrl: 'https://github.com/bgasimzade99/vesh-frontend'
     },
     {
       id: 5,
       title: t('portfolio.project5.title'),
       description: t('portfolio.project5.desc'),
-      category: 'mobile',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=300&fit=crop',
-      technologies: ['Flutter', 'Dart', 'Firebase'],
+      category: 'web',
+      image: '/project-images/thesis.svg',
+      technologies: ['Python', 'Flask', 'Machine Learning', 'Recommendation System'],
       features: [t('portfolio.project5.feature1'), t('portfolio.project5.feature2'), t('portfolio.project5.feature3')],
-      liveUrl: '#',
-      githubUrl: '#'
+      liveUrl: 'https://github.com/bgasimzade99/Thesis',
+      githubUrl: 'https://github.com/bgasimzade99/Thesis'
     },
     {
       id: 6,
       title: t('portfolio.project6.title'),
       description: t('portfolio.project6.desc'),
-      category: 'fullstack',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop',
-      technologies: ['React', 'Express', 'PostgreSQL'],
+      category: 'web',
+      image: '/project-images/frontend-portfolio.svg',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'Portfolio Design', 'Responsive'],
       features: [t('portfolio.project6.feature1'), t('portfolio.project6.feature2'), t('portfolio.project6.feature3')],
-      liveUrl: '#',
-      githubUrl: '#'
+      liveUrl: 'http://bgdev.dev/frontend-portfolio/',
+      githubUrl: 'https://github.com/bgasimzade99/frontend-portfolio'
+    },
+    {
+      id: 7,
+      title: t('portfolio.project7.title'),
+      description: t('portfolio.project7.desc'),
+      category: 'interactive',
+      image: '/project-images/todo-app.svg',
+      technologies: ['JavaScript', 'Local Storage', 'DOM Manipulation', 'Task Management'],
+      features: [t('portfolio.project7.feature1'), t('portfolio.project7.feature2'), t('portfolio.project7.feature3')],
+      liveUrl: '',
+      githubUrl: ''
+    },
+    {
+      id: 8,
+      title: t('portfolio.project8.title'),
+      description: t('portfolio.project8.desc'),
+      category: 'responsive',
+      image: '/project-images/weather-app.svg',
+      technologies: ['JavaScript', 'API Integration', 'Weather API', 'Responsive Design'],
+      features: [t('portfolio.project8.feature1'), t('portfolio.project8.feature2'), t('portfolio.project8.feature3')],
+      liveUrl: '',
+      githubUrl: ''
+    },
+    {
+      id: 9,
+      title: t('portfolio.project9.title'),
+      description: t('portfolio.project9.desc'),
+      category: 'web',
+      image: '/project-images/modern-portfolio.svg',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'i18n'],
+      features: [t('portfolio.project9.feature1'), t('portfolio.project9.feature2'), t('portfolio.project9.feature3')],
+      liveUrl: 'https://www.bgdev.dev',
+      githubUrl: 'https://github.com/bgasimzade99/bgasimzade99.github.io'
     }
   ];
 

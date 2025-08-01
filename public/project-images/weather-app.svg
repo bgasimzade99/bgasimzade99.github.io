@@ -1,0 +1,92 @@
+<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#07C9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00B2FE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#F8FAFF;stop-opacity:0.9" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="300" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Background Pattern -->
+  <defs>
+    <pattern id="clouds" width="100" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="8" fill="rgba(255,255,255,0.1)"/>
+      <circle cx="80" cy="40" r="6" fill="rgba(255,255,255,0.1)"/>
+    </pattern>
+  </defs>
+  <rect width="500" height="300" fill="url(#clouds)"/>
+  
+  <!-- Floating Elements -->
+  <circle cx="100" cy="80" r="3" fill="rgba(255,255,255,0.6)" filter="url(#glow)"/>
+  <circle cx="400" cy="120" r="2" fill="rgba(255,255,255,0.4)" filter="url(#glow)"/>
+  <circle cx="350" cy="200" r="4" fill="rgba(255,255,255,0.3)" filter="url(#glow)"/>
+  
+  <!-- Main Weather Card -->
+  <g transform="translate(250,150)">
+    <!-- Weather Card -->
+    <rect x="-80" y="-60" width="160" height="120" fill="url(#cardGradient)" rx="12" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    
+    <!-- Sun -->
+    <circle cx="-40" cy="-30" r="15" fill="#FCD34D" stroke="white" stroke-width="2"/>
+    <g transform="translate(-40,-30)">
+      <path d="M0 -20 L0 -25 M0 20 L0 25 M-20 0 L-25 0 M20 0 L25 0 M-14 -14 L-18 -18 M14 14 L18 18 M-14 14 L-18 18 M14 -14 L18 -18" stroke="#FCD34D" stroke-width="2"/>
+    </g>
+    
+    <!-- Temperature -->
+    <text x="20" y="-30" font-family="Arial, sans-serif" font-size="24" fill="#07C9FF" text-anchor="middle" font-weight="bold">24°C</text>
+    <text x="20" y="-10" font-family="Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="middle">Sunny</text>
+    
+    <!-- Weather Details -->
+    <g transform="translate(0,10)">
+      <text x="-60" y="0" font-family="Arial, sans-serif" font-size="10" fill="#374151" text-anchor="start">Humidity: 65%</text>
+      <text x="-60" y="15" font-family="Arial, sans-serif" font-size="10" fill="#374151" text-anchor="start">Wind: 12 km/h</text>
+      <text x="-60" y="30" font-family="Arial, sans-serif" font-size="10" fill="#374151" text-anchor="start">Pressure: 1013 hPa</text>
+    </g>
+    
+    <!-- Location -->
+    <text x="0" y="55" font-family="Arial, sans-serif" font-size="12" fill="#07C9FF" text-anchor="middle" font-weight="bold">📍 Baku, Azerbaijan</text>
+  </g>
+  
+  <!-- Weather Icons -->
+  <g transform="translate(250,80)">
+    <!-- Cloud -->
+    <ellipse cx="0" cy="0" rx="20" ry="8" fill="rgba(255,255,255,0.9)"/>
+    <ellipse cx="-10" cy="-5" rx="12" ry="6" fill="rgba(255,255,255,0.9)"/>
+    <ellipse cx="10" cy="-5" rx="12" ry="6" fill="rgba(255,255,255,0.9)"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="250" y="40" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">Weather App</text>
+  <text x="250" y="60" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle">Real-time Weather Information</text>
+  
+  <!-- Tech Stack Icons -->
+  <g transform="translate(250,280)">
+    <rect x="-60" y="-8" width="16" height="16" fill="#F7DF1E" rx="2"/>
+    <text x="-52" y="2" font-family="Arial, sans-serif" font-size="8" fill="black" text-anchor="middle">JS</text>
+    
+    <rect x="-40" y="-8" width="16" height="16" fill="#07C9FF" rx="2"/>
+    <text x="-32" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">API</text>
+    
+    <rect x="-20" y="-8" width="16" height="16" fill="#07C9FF" rx="2"/>
+    <text x="-12" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">WA</text>
+    
+    <rect x="0" y="-8" width="16" height="16" fill="#07C9FF" rx="2"/>
+    <text x="8" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">RD</text>
+    
+    <rect x="20" y="-8" width="16" height="16" fill="#07C9FF" rx="2"/>
+    <text x="28" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">A</text>
+  </g>
+</svg> 

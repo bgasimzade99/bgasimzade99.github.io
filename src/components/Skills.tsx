@@ -267,22 +267,22 @@ const Skills = () => {
                     : "0 20px 40px -12px rgba(0, 0, 0, 0.2)"
                 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`p-4 rounded-xl text-center ${isDark ? 'bg-slate-800/50' : 'bg-gray-50'} border ${isDark ? 'border-white/10' : 'border-gray-200'} backdrop-blur-sm hover:shadow-lg transition-all duration-300`}
+                className={`p-4 rounded-xl text-center ${isDark ? 'bg-slate-800/50' : 'bg-gray-50'} border ${isDark ? 'border-white/10' : 'border-gray-200'} backdrop-blur-sm hover:shadow-lg transition-all duration-300 cursor-pointer`}
               >
-                <motion.div 
-                  className="text-3xl mb-2"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  {tech.icon}
-                </motion.div>
-                <div className={`font-semibold mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                  {tech.name}
-                </div>
-                <div className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                  {tech.level}
-                </div>
+              <motion.div 
+                className="text-3xl mb-2"
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+              >
+                {tech.icon}
               </motion.div>
+              <div className={`font-semibold mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                {tech.name}
+              </div>
+              <div className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                {tech.level}
+              </div>
+            </motion.div>
             ))}
           </div>
         </motion.div>

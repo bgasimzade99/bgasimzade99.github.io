@@ -1,7 +1,17 @@
 {
+  "nav": {
+    "home": "Ana Səhifə",
+    "about": "Haqqımda",
+    "skills": "Bacarıqlar",
+    "portfolio": "Portfolio",
+    "contact": "Əlaqə"
+  },
   "hero": {
     "title": "Salam, mən Babək Qasımzadə, Junior Mobil və Frontend Developer",
     "subtitle": "Müasir, responsive və sürətli veb və mobil tətbiqlər yaradıram.",
+    "description": "React Native, React və müasir veb texnologiyaları ilə innovativ rəqəmsal təcrübələr yaradan həvəskar Mobil və Frontend Developer.",
+    "welcome": "Portfolio-ma xoş gəlmisiniz",
+    "cv": "CV Yüklə",
     "cta": "Əlaqə saxla"
   },
   "about": {
@@ -28,22 +38,46 @@
     "service6": "API İnteqrasiyası",
     "badge": "İş üçün Mövcuddur"
   },
-  "projects": {
-    "title": "Layihələr",
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Son işlərimdən bəziləri",
     "project1": {
       "title": "Portfolio Saytı",
-      "description": "React və Tailwind CSS ilə hazırlanmış təmiz və müasir portfolio."
+      "desc": "React və Tailwind CSS ilə hazırlanmış təmiz və müasir portfolio."
     },
     "project2": {
       "title": "Udemy Klonu",
-      "description": "React hook-ları və localStorage dəstəyi ilə sadə todo tətbiqi."
-    }
+      "desc": "React hook-ları və localStorage dəstəyi ilə sadə todo tətbiqi."
+    },
+    "project3": {
+      "title": "Todo Tətbiqi",
+      "desc": "React hook-ları və localStorage dəstəyi ilə sadə todo tətbiqi."
+    },
+    "project4": {
+      "title": "Vesh Mobil Tətbiqi",
+      "desc": "Play Store-da 80k+ istifadəçisi olan React Native mobil tətbiqi"
+    },
+    "project5": {
+      "title": "Hava Tətbiqi",
+      "desc": "Məkan əsaslı proqnozlarla real vaxt hava tətbiqi"
+    },
+    "project6": {
+      "title": "Müasir Portfolio",
+      "desc": "Animasiyalar və responsive dizayn ilə müasir portfolio saytı"
+    },
+    "moreProjects": "Daha Çox Layihə",
+    "moreProjectsDesc": "Daha çox layihə və töhfə üçün GitHub profilimə baxın",
+    "githubProfile": "GitHub Profilini Görüntülə"
   },
   "skills": {
     "title": "Bacarıqlarım",
+    "subtitle": "Fikirləri həyata keçirmək üçün istifadə etdiyim texnologiyalar və alətlər",
     "frontend": "Frontend İnkişafı",
     "mobile": "Mobil İnkişafı",
     "tools": "Alətlər və Texnologiyalar",
+    "technologies": "Texnologiyalar",
+    "learning": "Hal-hazırda Öyrənirəm",
+    "learningDesc": "Biliklərimi daim genişləndirirəm və yeni texnologiyalar kəşf edirəm",
     "tech": {
       "htmlcss": "HTML/CSS",
       "javascript": "JavaScript", 
@@ -70,10 +104,35 @@
   },
   "contact": {
     "title": "Əlaqə",
+    "subtitle": "Gəlin birlikdə işləyək!",
+    "available": "İş üçün mövcudam",
+    "ready": "Növbəti layihənizi başlatmağa hazıram",
     "name": "Adınız",
     "email": "E-poçtunuz",
+    "phone": "Telefon",
+    "linkedin": "LinkedIn",
+    "subject": "Mövzu",
     "message": "Mesajınız",
     "send": "Göndər",
-    "alert": "Mesajınız üçün təşəkkürlər! Tezliklə sizə cavab verəcəm."
+    "sendMessage": "Mesaj Göndər",
+    "sending": "Göndərilir...",
+    "messageSent": "Mesaj göndərildi!",
+    "alert": "Mesajınız üçün təşəkkürlər! Tezliklə sizə cavab verəcəm.",
+    "placeholder": {
+      "name": "Adınızı daxil edin",
+      "email": "E-poçtunuzu daxil edin",
+      "subject": "Mövzunu daxil edin",
+      "message": "Mesajınızı daxil edin"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Babək Qasımzadə. Bütün hüquqlar qorunur.",
+    "madeWith": "React ilə ❤️ ilə hazırlanıb",
+    "description": "Gözəl və funksional tətbiqlər yaradan həvəskar developer",
+    "quickLinks": "Sürətli Linklər",
+    "contact": "Əlaqə Məlumatları",
+    "workTogether": "Gəlin Birlikdə İşləyək",
+    "workTogetherDesc": "Növbəti layihənizi başlatmağa hazırsınız? Fikirlərinizi həyata keçirməkdə necə kömək edə biləcəyimi müzakirə edək.",
+    "getInTouch": "Əlaqə Saxla"
   }
 }

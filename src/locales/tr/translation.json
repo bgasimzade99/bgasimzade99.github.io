@@ -10,10 +10,9 @@
     "welcome": "Portfolio'ma hoş geldiniz",
     "title": "Merhaba, ben Babak Gasimzade, Junior Mobil ve Frontend Developer",
     "subtitle": "React, React Native ve modern teknolojilerle web ve mobil uygulamalar geliştiriyorum.",
-    "description": "Fark yaratan güzel, işlevsel ve kullanıcı dostu uygulamalar yaratmaya tutkulu biriyim.",
-    "downloadCV": "CV İndir",
-    "contact": "İletişime Geç",
-    "role": "Mobil & Frontend Developer"
+    "description": "React Native, React ve modern web teknolojileri ile yenilikçi dijital deneyimler yaratan tutkulu Mobil ve Frontend Developer.",
+    "cv": "CV İndir",
+    "cta": "İletişime Geç"
   },
   "about": {
     "title": "Hakkımda",

@@ -14,6 +14,12 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState(null);
@@ -27,16 +33,53 @@ const Contact = () => {
     }
   }, [isInView, controls, t]);
 
+  const validateField = (name, value) => {
+    switch (name) {
+      case 'name':
+        return value.trim() === '' ? 'Name is required' : '';
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return value.trim() === '' ? 'Email is required' : !emailRegex.test(value) ? 'Invalid email format' : '';
+      case 'subject':
+        return value.trim() === '' ? 'Subject is required' : '';
+      case 'message':
+        return value.trim() === '' ? 'Message is required' : value.length < 10 ? 'Message must be at least 10 characters' : '';
+      default:
+        return '';
+    }
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate all fields
+    const newErrors = {};
+    Object.keys(formData).forEach(key => {
+      const error = validateField(key, formData[key]);
+      if (error) newErrors[key] = error;
+    });
+    
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    
     setIsSubmitting(true);
     
     // Simulate API call
@@ -45,6 +88,7 @@ const Contact = () => {
     setIsSubmitting(false);
     setIsSubmitted(true);
     setFormData({ name: '', email: '', subject: '', message: '' });
+    setErrors({ name: '', email: '', subject: '', message: '' });
     
     // Reset success state after 3 seconds
     setTimeout(() => setIsSubmitted(false), 3000);
@@ -359,16 +403,27 @@ const Contact = () => {
                       required
                       whileFocus={{ scale: 1.02 }}
                       className={`w-full px-4 py-3 rounded-xl border transition-all duration-300 ${
-                        focusedField === 'name'
-                          ? isDark 
-                            ? 'border-blue-400 bg-slate-700/50' 
-                            : 'border-blue-400 bg-blue-50'
-                          : isDark 
-                            ? 'border-white/20 bg-slate-700/30' 
-                            : 'border-gray-300 bg-gray-50'
+                        errors.name
+                          ? 'border-red-500 bg-red-50'
+                          : focusedField === 'name'
+                            ? isDark 
+                              ? 'border-blue-400 bg-slate-700/50' 
+                              : 'border-blue-400 bg-blue-50'
+                            : isDark 
+                              ? 'border-white/20 bg-slate-700/30' 
+                              : 'border-gray-300 bg-gray-50'
                       } ${isDark ? 'text-white placeholder-gray-400' : 'text-gray-900 placeholder-gray-500'}`}
                       placeholder={t('contact.placeholder.name')}
                     />
+                    {errors.name && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-sm mt-1"
+                      >
+                        {errors.name}
+                      </motion.p>
+                    )}
                   </motion.div>
 
                   {/* Email Field */}
@@ -394,16 +449,27 @@ const Contact = () => {
                       required
                       whileFocus={{ scale: 1.02 }}
                       className={`w-full px-4 py-3 rounded-xl border transition-all duration-300 ${
-                        focusedField === 'email'
-                          ? isDark 
-                            ? 'border-blue-400 bg-slate-700/50' 
-                            : 'border-blue-400 bg-blue-50'
-                          : isDark 
-                            ? 'border-white/20 bg-slate-700/30' 
-                            : 'border-gray-300 bg-gray-50'
+                        errors.email
+                          ? 'border-red-500 bg-red-50'
+                          : focusedField === 'email'
+                            ? isDark 
+                              ? 'border-blue-400 bg-slate-700/50' 
+                              : 'border-blue-400 bg-blue-50'
+                            : isDark 
+                              ? 'border-white/20 bg-slate-700/30' 
+                              : 'border-gray-300 bg-gray-50'
                       } ${isDark ? 'text-white placeholder-gray-400' : 'text-gray-900 placeholder-gray-500'}`}
                       placeholder={t('contact.placeholder.email')}
                     />
+                    {errors.email && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-sm mt-1"
+                      >
+                        {errors.email}
+                      </motion.p>
+                    )}
                   </motion.div>
                 </div>
 
@@ -430,16 +496,27 @@ const Contact = () => {
                     required
                     whileFocus={{ scale: 1.02 }}
                     className={`w-full px-4 py-3 rounded-xl border transition-all duration-300 ${
-                      focusedField === 'subject'
-                        ? isDark 
-                          ? 'border-blue-400 bg-slate-700/50' 
-                          : 'border-blue-400 bg-blue-50'
-                        : isDark 
-                          ? 'border-white/20 bg-slate-700/30' 
-                          : 'border-gray-300 bg-gray-50'
+                      errors.subject
+                        ? 'border-red-500 bg-red-50'
+                        : focusedField === 'subject'
+                          ? isDark 
+                            ? 'border-blue-400 bg-slate-700/50' 
+                            : 'border-blue-400 bg-blue-50'
+                          : isDark 
+                            ? 'border-white/20 bg-slate-700/30' 
+                            : 'border-gray-300 bg-gray-50'
                     } ${isDark ? 'text-white placeholder-gray-400' : 'text-gray-900 placeholder-gray-500'}`}
                     placeholder={t('contact.placeholder.subject')}
                   />
+                  {errors.subject && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-500 text-sm mt-1"
+                    >
+                      {errors.subject}
+                    </motion.p>
+                  )}
                 </motion.div>
 
                 {/* Message Field */}
@@ -465,16 +542,27 @@ const Contact = () => {
                     rows={5}
                     whileFocus={{ scale: 1.02 }}
                     className={`w-full px-4 py-3 rounded-xl border transition-all duration-300 resize-none ${
-                      focusedField === 'message'
-                        ? isDark 
-                          ? 'border-blue-400 bg-slate-700/50' 
-                          : 'border-blue-400 bg-blue-50'
-                        : isDark 
-                          ? 'border-white/20 bg-slate-700/30' 
-                          : 'border-gray-300 bg-gray-50'
+                      errors.message
+                        ? 'border-red-500 bg-red-50'
+                        : focusedField === 'message'
+                          ? isDark 
+                            ? 'border-blue-400 bg-slate-700/50' 
+                            : 'border-blue-400 bg-blue-50'
+                          : isDark 
+                            ? 'border-white/20 bg-slate-700/30' 
+                            : 'border-gray-300 bg-gray-50'
                     } ${isDark ? 'text-white placeholder-gray-400' : 'text-gray-900 placeholder-gray-500'}`}
                     placeholder={t('contact.placeholder.message')}
                   />
+                  {errors.message && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-500 text-sm mt-1"
+                    >
+                      {errors.message}
+                    </motion.p>
+                  )}
                 </motion.div>
 
                 {/* Submit Button */}
