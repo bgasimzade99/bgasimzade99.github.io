@@ -26,7 +26,7 @@
     "postcss": "^8.4.38",
     "typescript": "^4.9.5"
   },
-  "homepage": "https://bgasimzade99.github.io/my-portfolio",
+  "homepage": "https://www.bgdev.dev",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
