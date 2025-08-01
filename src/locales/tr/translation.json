@@ -1,0 +1,127 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımda",
+    "skills": "Yetenekler",
+    "portfolio": "Portfolio",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "welcome": "Portfolio'ma hoş geldiniz",
+    "title": "Merhaba, ben Babak Gasimzade, Junior Mobil ve Frontend Developer",
+    "subtitle": "React, React Native ve modern teknolojilerle web ve mobil uygulamalar geliştiriyorum.",
+    "description": "Fark yaratan güzel, işlevsel ve kullanıcı dostu uygulamalar yaratmaya tutkulu biriyim.",
+    "downloadCV": "CV İndir",
+    "contact": "İletişime Geç",
+    "role": "Mobil & Frontend Developer"
+  },
+  "about": {
+    "title": "Hakkımda",
+    "subtitle": "React, React Native ve modern web teknolojilerinde pratik deneyime sahip kararlı bir Junior Frontend ve Mobil Developer'ım. Responsive, kullanıcı dostu uygulamalar geliştirmekte uzmanlaşmışım ve teknik becerilerimi sürekli genişletiyorum.",
+    "journey": "Yolculuğum",
+    "description1": "JavaScript ve React ekosisteminde sağlam temellerle, fonksiyonel ve ölçeklenebilir uygulamalar geliştirme yeteneğimi kanıtlayan birkaç projeyi başarıyla teslim ettim.",
+    "description2": "Temiz, iyi dokümante edilmiş kod yazmaya ve sürdürülebilir, verimli çözümler sağlamak için en iyi uygulamaları uygulamaya odaklanıyorum.",
+    "description3": "Sürekli öğrenmeye ve sektör trendleriyle güncel kalmaya bağlıyım, bu da modern, yüksek kaliteli uygulamalar sunmama yardımcı oluyor.",
+    "description": "React, React Native ve modern web teknolojilerinde pratik deneyime sahip kararlı bir Junior Frontend ve Mobil Developer'ım. Responsive, kullanıcı dostu uygulamalar geliştirmekte uzmanlaşmışım ve teknik becerilerimi sürekli genişletiyorum. JavaScript ve React ekosisteminde sağlam temellerle, fonksiyonel ve ölçeklenebilir uygulamalar geliştirme yeteneğimi kanıtlayan birkaç projeyi başarıyla teslim ettim.",
+    "projects": "Tamamlanan Projeler",
+    "projectsDesc": "Başarıyla teslim edildi",
+    "teamProjects": "Ekip Projeleri",
+    "teamProjectsDesc": "İşbirliği",
+    "experience": "Yıllık Deneyim",
+    "experienceYear": "2+",
+    "experienceDesc": "Profesyonel geliştirme",
+    "focus": "Odak Alanım",
+    "service1": "Frontend Geliştirme",
+    "service2": "Mobil Uygulama Geliştirme",
+    "service3": "UI/UX Tasarım",
+    "service4": "Performans Optimizasyonu",
+    "service5": "Cross-platform Geliştirme",
+    "service6": "API Entegrasyonu",
+    "badge": "İş İçin Müsait"
+  },
+  "skills": {
+    "title": "Yeteneklerim",
+    "subtitle": "Fikirleri hayata geçirmek için kullandığım teknolojiler ve araçlar",
+    "frontend": "Frontend Geliştirme",
+    "mobile": "Mobil Geliştirme",
+    "tools": "Araçlar ve Teknolojiler",
+    "technologies": "Teknolojiler",
+    "learning": "Şu Anda Öğreniyorum",
+    "learningDesc": "Sürekli bilgimi genişletiyor ve yeni teknolojiler keşfediyorum",
+    "tech": {
+      "react": "React.js",
+      "reactNative": "React Native",
+      "javascript": "JavaScript",
+      "htmlcss": "HTML/CSS",
+      "expo": "Expo",
+      "typescript": "TypeScript",
+      "figma": "Figma",
+      "tailwind": "Tailwind CSS"
+    },
+    "level": {
+      "beginner": "Başlangıç",
+      "medium": "Orta",
+      "good": "İyi",
+      "veryGood": "Çok İyi"
+    },
+    "learning": {
+      "flutter": "Flutter",
+      "swift": "Swift",
+      "kotlin": "Kotlin",
+      "nextjs": "Next.js",
+      "testing": "Test"
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Son çalışmalarımdan bazıları",
+    "project4": {
+      "title": "E-Ticaret Platformu",
+      "desc": "Next.js ve TypeScript ile geliştirilmiş modern e-ticaret platformu"
+    },
+    "project5": {
+      "title": "Görev Yönetimi Uygulaması",
+      "desc": "Gerçek zamanlı özelliklerle full-stack görev yönetimi uygulaması"
+    },
+    "project6": {
+      "title": "Sosyal Medya Paneli",
+      "desc": "Sosyal medya yönetimi için analitik paneli"
+    },
+    "moreProjects": "Daha Fazla Proje",
+    "moreProjectsDesc": "Daha fazla proje ve katkı için GitHub profilime bakın",
+    "githubProfile": "GitHub Profilini Görüntüle"
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Birlikte çalışalım!",
+    "available": "İş için müsaitim",
+    "ready": "Bir sonraki projenizi başlatmaya hazırım",
+    "name": "Adınız",
+    "email": "E-posta Adresiniz",
+    "phone": "Telefon",
+    "linkedin": "LinkedIn",
+    "subject": "Konu",
+    "message": "Mesajınız",
+    "send": "Gönder",
+    "sendMessage": "Mesaj Gönder",
+    "sending": "Gönderiliyor...",
+    "messageSent": "Mesaj gönderildi!",
+    "alert": "Mesajınız için teşekkürler! Yakında size geri döneceğim.",
+    "placeholder": {
+      "name": "Adınızı girin",
+      "email": "E-posta adresinizi girin",
+      "subject": "Konuyu girin",
+      "message": "Mesajınızı girin"
+    }
+  },
+  "footer": {
+    "copyright": "© 2025 Babak Gasimzade. Tüm hakları saklıdır.",
+    "madeWith": "React ile ❤️ ile yapıldı",
+    "description": "Güzel ve işlevsel uygulamalar yaratan tutkulu geliştirici",
+    "quickLinks": "Hızlı Linkler",
+    "contact": "İletişim Bilgileri",
+    "workTogether": "Birlikte Çalışalım",
+    "workTogetherDesc": "Bir sonraki projenizi başlatmaya hazır mısınız? Fikirlerinizi hayata geçirmekte nasıl yardımcı olabileceğimi tartışalım.",
+    "getInTouch": "İletişime Geç"
+  }
+} 

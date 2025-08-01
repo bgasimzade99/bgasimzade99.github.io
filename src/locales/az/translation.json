@@ -6,7 +6,27 @@
   },
   "about": {
     "title": "Haqqımda",
-    "description": "Peşəkar Frontend və Mobil Tətbiq Tərtibatçısıyam – React, React Native, Tailwind CSS və JavaScript texnologiyaları ilə yüksək performanslı, adaptiv və müasir veb və mobil tətbiqlər hazırlayıram. İstifadəçi təcrübəsini ön planda tutaraq, estetik və funksional interfeyslər qurmaqda ixtisaslaşmışam."
+    "subtitle": "Mən React, React Native və müasir veb texnologiyalarında praktik təcrübəsi olan sədaqətli Junior Frontend və Mobil Developer-əm. Responsive, istifadəçi dostu tətbiqlər yaratmaqda ixtisaslaşmışam və texniki bacarıqlarımı daim genişləndirirəm.",
+    "journey": "Yolculuğum",
+    "description1": "JavaScript və React ekosistemində möhkəm təməllə, funksional və miqyaslanabilən tətbiqlər yaratmaq qabiliyyətimə sübut edən bir neçə layihəni uğurla təqdim etmişəm.",
+    "description2": "Təmiz, yaxşı sənədləşdirilmiş kod yazmağa və saxlanıla bilən, effektiv həllər təmin etmək üçün ən yaxşı təcrübələri tətbiq etməyə fokuslanıram.",
+    "description3": "Daimi öyrənməyə və sənaye tendensiyaları ilə güncəldə qalmağa sadiqəm, bu da müasir, yüksək keyfiyyətli tətbiqlər təqdim etməyə kömək edir.",
+    "description": "Mən React, React Native və müasir veb texnologiyalarında praktik təcrübəsi olan sədaqətli Junior Frontend və Mobil Developer-əm. Responsive, istifadəçi dostu tətbiqlər yaratmaqda ixtisaslaşmışam və texniki bacarıqlarımı daim genişləndirirəm. JavaScript və React ekosistemində möhkəm təməllə, funksional və miqyaslanabilən tətbiqlər yaratmaq qabiliyyətimə sübut edən bir neçə layihəni uğurla təqdim etmişəm.",
+    "projects": "Tamamlanmış Layihələr",
+    "projectsDesc": "Uğurla təqdim edildi",
+    "teamProjects": "Komanda Layihələri",
+    "teamProjectsDesc": "Əməkdaşlıq",
+    "experience": "İllik Təcrübə",
+    "experienceYear": "2+",
+    "experienceDesc": "Peşəkar inkişaf",
+    "focus": "Fokus Sahəm",
+    "service1": "Frontend İnkişafı",
+    "service2": "Mobil Tətbiq İnkişafı",
+    "service3": "UI/UX Dizayn",
+    "service4": "Performans Optimizasiyası",
+    "service5": "Cross-platform İnkişaf",
+    "service6": "API İnteqrasiyası",
+    "badge": "İş üçün Mövcuddur"
   },
   "projects": {
     "title": "Layihələr",
@@ -20,7 +40,33 @@
     }
   },
   "skills": {
-    "title": "Bacarıqlarım"
+    "title": "Bacarıqlarım",
+    "frontend": "Frontend İnkişafı",
+    "mobile": "Mobil İnkişafı",
+    "tools": "Alətlər və Texnologiyalar",
+    "tech": {
+      "htmlcss": "HTML/CSS",
+      "javascript": "JavaScript", 
+      "react": "React",
+      "reactNative": "React Native",
+      "typescript": "TypeScript",
+      "tailwind": "Tailwind CSS",
+      "expo": "Expo",
+      "figma": "Figma"
+    },
+    "level": {
+      "beginner": "Başlanğıc",
+      "medium": "Orta",
+      "good": "Yaxşı",
+      "veryGood": "Çox Yaxşı"
+    },
+    "learning": {
+      "flutter": "Flutter",
+      "swift": "Swift",
+      "kotlin": "Kotlin",
+      "nextjs": "Next.js", 
+      "testing": "Test"
+    }
   },
   "contact": {
     "title": "Əlaqə",

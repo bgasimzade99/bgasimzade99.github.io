@@ -27,11 +27,11 @@ const translations: Record<Language, Record<string, string>> = {
     
     // About Section
     'about.title': 'About Me',
-    'about.subtitle': 'I am an expert in modern technologies as a Mobile and Frontend Developer.',
+    'about.subtitle': 'I am a dedicated Junior Frontend and Mobile Developer with hands-on experience in React, React Native, and modern web technologies.',
     'about.journey': 'My Journey as a Mobile & Frontend Developer',
-    'about.description1': "I am a passionate developer in web and mobile application development. I focus on continuous learning in React, React Native and modern web technologies.",
-    'about.description2': 'I have built a strong foundation in frontend development and am gaining experience in React Native mobile application development. Every project is a new learning opportunity for me.',
-    'about.description3': 'I value teamwork and show sensitivity in code quality and user experience. I am trying to specialize in cross-platform development.',
+    'about.description1': "With a strong foundation in JavaScript and React ecosystem, I've successfully delivered several projects that demonstrate my ability to build functional, scalable applications.",
+    'about.description2': 'I focus on writing clean, well-documented code and implementing best practices to ensure maintainable and efficient solutions.',
+    'about.description3': 'I am committed to continuous learning and staying current with industry trends, which helps me deliver modern, high-quality applications.',
     'about.focus': 'Areas I Focus On',
     'about.projects': 'Projects',
     'about.projectsDesc': 'Personal and educational projects',
@@ -49,7 +49,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Skills Section
     'skills.title': 'My Skills',
-    'skills.subtitle': 'I am an expert in web and mobile application development.',
+    'skills.subtitle': 'Technologies and tools I use to bring ideas to life',
     'skills.frontend': 'Frontend',
     'skills.mobile': 'Mobile Development',
     'skills.tools': 'Tools & Others',
@@ -178,11 +178,11 @@ const translations: Record<Language, Record<string, string>> = {
     
     // About Section
     'about.title': 'Haqqımda',
-    'about.subtitle': 'Mobile və Frontend Developer kimi müasir texnologiyalar sahəsində mütəxəssisəm.',
+    'about.subtitle': 'React, React Native və müasir veb texnologiyalarında praktik təcrübəsi olan sədaqətli Junior Frontend və Mobil Developer-əm.',
     'about.journey': 'Mobile və Frontend Developer Kimi Yolculuğum',
-    'about.description1': 'Web və mobil tətbiq inkişafı sahəsində tutqulu developer\'ım. React, React Native və müasir web texnologiyaları sahəsində davamlı öyrənməyə fokuslanıram.',
-    'about.description2': 'Frontend inkişafı sahəsində güclü təməl yaratdım və React Native mobil tətbiq inkişafı sahəsində təcrübə qazanıram. Hər layihə mənim üçün yeni öyrənmə fürsətidir.',
-    'about.description3': 'Komanda işinə dəyər verirəm və kod keyfiyyəti və istifadəçi təcrübəsi məsələlərində həssaslıq göstərirəm. Cross-platform inkişaf sahəsində ixtisaslaşmağa çalışıram.',
+    'about.description1': 'JavaScript və React ekosistemində möhkəm təməllə, funksional və miqyaslanabilən tətbiqlər yaratmaq qabiliyyətimə sübut edən bir neçə layihəni uğurla təqdim etmişəm.',
+    'about.description2': 'Təmiz, yaxşı sənədləşdirilmiş kod yazmağa və saxlanıla bilən, effektiv həllər təmin etmək üçün ən yaxşı təcrübələri tətbiq etməyə fokuslanıram.',
+    'about.description3': 'Daimi öyrənməyə və sənaye tendensiyaları ilə güncəldə qalmağa sadiqəm, bu da müasir, yüksək keyfiyyətli tətbiqlər təqdim etməyə kömək edir.',
     'about.focus': 'Fokuslandığım Sahələr',
     'about.projects': 'Layihələr',
     'about.projectsDesc': 'Şəxsi və təhsil layihələri',
@@ -200,7 +200,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Skills Section
     'skills.title': 'Bacarıqlarım',
-    'skills.subtitle': 'Web və mobil tətbiq inkişafı sahəsində mütəxəssisəm.',
+    'skills.subtitle': 'Fikirləri həyata keçirmək üçün istifadə etdiyim texnologiyalar və alətlər',
     'skills.frontend': 'Frontend',
     'skills.mobile': 'Mobil İnkişaf',
     'skills.tools': 'Alətlər və Digərləri',
@@ -351,7 +351,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Skills Section
     'skills.title': 'Yeteneklerim',
-    'skills.subtitle': 'Web ve mobil uygulama geliştirme konusunda uzmanım.',
+    'skills.subtitle': 'Fikirleri hayata geçirmek için kullandığım teknolojiler ve araçlar',
     'skills.frontend': 'Frontend',
     'skills.mobile': 'Mobil Geliştirme',
     'skills.tools': 'Araçlar ve Diğerleri',

@@ -16,33 +16,33 @@ const Skills = () => {
       icon: Globe,
       title: t('skills.frontend'),
       skills: [
-        { name: t('skills.tech.htmlcss'), level: 85 },
-        { name: t('skills.tech.javascript'), level: 80 },
-        { name: t('skills.tech.react'), level: 75 },
-        { name: t('skills.tech.typescript'), level: 65 },
-        { name: t('skills.tech.tailwind'), level: 85 }
+        { name: t('skills.tech.htmlcss'), level: 75 },
+        { name: t('skills.tech.javascript'), level: 70 },
+        { name: t('skills.tech.react'), level: 65 },
+        { name: t('skills.tech.typescript'), level: 55 },
+        { name: t('skills.tech.tailwind'), level: 75 }
       ]
     },
     {
       icon: Smartphone,
       title: t('skills.mobile'),
       skills: [
-        { name: t('skills.tech.reactNative'), level: 70 },
-        { name: t('skills.tech.expo'), level: 75 },
-        { name: "Mobile UI/UX", level: 80 },
-        { name: "App Store Deploy", level: 60 },
-        { name: "Mobile Testing", level: 65 }
+        { name: t('skills.tech.reactNative'), level: 60 },
+        { name: t('skills.tech.expo'), level: 65 },
+        { name: "Mobile UI/UX", level: 70 },
+        { name: "App Store Deploy", level: 50 },
+        { name: "Mobile Testing", level: 55 }
       ]
     },
     {
       icon: Code,
       title: t('skills.tools'),
       skills: [
-        { name: "Git/GitHub", level: 80 },
-        { name: "VS Code", level: 90 },
-        { name: t('skills.tech.figma'), level: 75 },
-        { name: "Postman", level: 70 },
-        { name: "npm/yarn", level: 85 }
+        { name: "Git/GitHub", level: 70 },
+        { name: "VS Code", level: 80 },
+        { name: t('skills.tech.figma'), level: 65 },
+        { name: "Postman", level: 60 },
+        { name: "npm/yarn", level: 75 }
       ]
     }
   ];
@@ -360,8 +360,8 @@ const Skills = () => {
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+  </section>
+);
 };
 
-export default Skills; 
+export default Skills;

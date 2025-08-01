@@ -6,7 +6,27 @@
   },
   "about": {
     "title": "About Me",
-    "description": "I am a highly skilled Frontend and Mobile Application Developer with a strong command of React, React Native, Tailwind CSS, and JavaScript. I specialize in designing and developing performant, scalable, and visually refined web and mobile solutions. With a keen eye for detail and a user-centered mindset, I consistently deliver seamless digital experiences tailored to modern standards."
+    "subtitle": "I'm a dedicated Junior Frontend and Mobile Developer with hands-on experience in React, React Native, and modern web technologies. I specialize in creating responsive, user-friendly applications and continuously expand my technical skills.",
+    "journey": "My Journey",
+    "description1": "With a strong foundation in JavaScript and React ecosystem, I've successfully delivered several projects that demonstrate my ability to build functional, scalable applications.",
+    "description2": "I focus on writing clean, well-documented code and implementing best practices to ensure maintainable and efficient solutions.",
+    "description3": "I'm committed to continuous learning and staying current with industry trends, which helps me deliver modern, high-quality applications.",
+    "description": "I'm a dedicated Junior Frontend and Mobile Developer with hands-on experience in React, React Native, and modern web technologies. I specialize in creating responsive, user-friendly applications and continuously expand my technical skills. With a strong foundation in JavaScript and React ecosystem, I've successfully delivered several projects that demonstrate my ability to build functional, scalable applications. I focus on writing clean, well-documented code and implementing best practices to ensure maintainable and efficient solutions.",
+    "projects": "Completed Projects",
+    "projectsDesc": "Successfully delivered",
+    "teamProjects": "Team Projects",
+    "teamProjectsDesc": "Collaboration",
+    "experience": "Years Experience",
+    "experienceYear": "2+",
+    "experienceDesc": "Professional development",
+    "focus": "My Focus",
+    "service1": "Frontend Development",
+    "service2": "Mobile App Development",
+    "service3": "UI/UX Design",
+    "service4": "Performance Optimization",
+    "service5": "Cross-platform Development",
+    "service6": "API Integration",
+    "badge": "Available for Work"
   },
   "projects": {
     "title": "Projects",
@@ -20,7 +40,33 @@
     }
   },
   "skills": {
-    "title": "My Skills"
+    "title": "My Skills",
+    "frontend": "Frontend Development",
+    "mobile": "Mobile Development", 
+    "tools": "Tools & Technologies",
+    "tech": {
+      "htmlcss": "HTML/CSS",
+      "javascript": "JavaScript",
+      "react": "React",
+      "reactNative": "React Native",
+      "typescript": "TypeScript",
+      "tailwind": "Tailwind CSS",
+      "expo": "Expo",
+      "figma": "Figma"
+    },
+    "level": {
+      "beginner": "Beginner",
+      "medium": "Intermediate", 
+      "good": "Good",
+      "veryGood": "Very Good"
+    },
+    "learning": {
+      "flutter": "Flutter",
+      "swift": "Swift",
+      "kotlin": "Kotlin", 
+      "nextjs": "Next.js",
+      "testing": "Testing"
+    }
   },
   "contact": {
     "title": "Contact Me",
