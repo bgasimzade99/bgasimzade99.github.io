@@ -1,31 +1,43 @@
 import React from "react";
 import "./i18n";
 import { useTranslation } from "react-i18next";
+import { ThemeProvider } from "./contexts/ThemeContext.tsx";
+import { LanguageProvider } from "./contexts/LanguageContext.tsx";
 
-import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Projects from "./components/Projects.jsx";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Header from "./components/Header.tsx";
+import Hero from "./components/Hero.tsx";
+import About from "./components/About.tsx";
+import Skills from "./components/Skills.tsx";
+import Portfolio from "./components/Portfolio.tsx";
+import Contact from "./components/Contact.tsx";
+import Footer from "./components/Footer.tsx";
 
-export default function App() {
+function AppContent() {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng) => i18n.changeLanguage(lng);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white flex flex-col">
-      <Navbar changeLanguage={changeLanguage} currentLang={i18n.language} />
-      <main className="flex-grow container mx-auto px-6 py-10">
+    <div className="min-h-screen w-full overflow-x-hidden bg-gray-50 dark:bg-slate-900">
+      <Header />
+      <main className="w-full overflow-x-hidden">
         <Hero />
         <About />
-        <Projects />
         <Skills />
+        <Portfolio />
         <Contact />
       </main>
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
