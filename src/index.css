@@ -268,6 +268,116 @@ html {
   .overflow-hidden-mobile {
     overflow-x: hidden;
   }
+
+  /* Hero section mobile fixes */
+  #home h1 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  #home .text-xl {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+
+  #home .text-lg {
+    font-size: 0.9rem !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Hero buttons mobile layout */
+  #home .flex.space-x-4 {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    align-items: center !important;
+  }
+
+  #home .flex.space-x-4 > * {
+    width: 100% !important;
+    max-width: 280px !important;
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+
+  /* Hero profile image mobile */
+  #home img {
+    width: 16rem !important;
+    height: 16rem !important;
+  }
+
+  /* Portfolio grid mobile */
+  .grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Portfolio cards mobile */
+  .grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-3 > * {
+    padding: 1rem !important;
+  }
+
+  /* Skills grid mobile */
+  .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Contact form mobile */
+  .grid.grid-cols-1.lg\\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Header mobile */
+  header .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Footer mobile */
+  footer .grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Language selector mobile */
+  .absolute.top-full.right-0 {
+    min-width: 200px !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+
+  /* Quick links mobile */
+  .space-y-3 > * {
+    padding: 0.5rem 0 !important;
+  }
+
+  /* Back to top button mobile */
+  .fixed.bottom-6.right-6 {
+    bottom: 1rem !important;
+    right: 1rem !important;
+    width: 3rem !important;
+    height: 3rem !important;
+  }
+
+  /* Prevent any horizontal overflow */
+  * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ensure proper text wrapping */
+  p, span, div {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Better button spacing */
+  .btn-primary, .btn-secondary {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+    min-height: 44px !important;
+  }
 }
 
 /* Tablet-specific fixes */
