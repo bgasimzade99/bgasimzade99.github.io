@@ -34,7 +34,7 @@ export default function Experience() {
 
         <div className="space-y-6">
           {profile.experience.map((job, i) => {
-            const expData = ((t('profile.experience') as Array<{ role: string; period: string; bullets: string[] }>) ?? [])[i];
+            const expData = ((t('profile.experience') as unknown as Array<{ role: string; period: string; bullets: string[] }>) ?? [])[i];
             const role = expData?.role ?? job.role;
             const period = expData?.period ?? job.period;
             const bullets = expData?.bullets ?? job.bullets;

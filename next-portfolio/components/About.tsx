@@ -13,7 +13,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   const reduced = useReducedMotion();
   const { t } = useLanguage();
-  const highlights = (t('about.highlights') as string[] | undefined) ?? profile.aboutHighlights;
+  const highlights = (t('about.highlights') as unknown as string[] | undefined) ?? profile.aboutHighlights;
   const metrics = [
     { value: '10+', labelKey: 'projects' as const },
     { value: '5+', labelKey: 'team' as const },
@@ -96,7 +96,7 @@ export default function About() {
               >
                 <div className="text-2xl font-bold tracking-[-0.02em] text-teal-400/95 mb-0.5">{m.value}</div>
                 <div className="text-xs text-white/48 uppercase tracking-wider">
-                  {String((t('about.metrics') as Record<string, string>)?.[m.labelKey] ?? m.labelKey)}
+                  {String((t('about.metrics') as unknown as Record<string, string>)?.[m.labelKey] ?? m.labelKey)}
                 </div>
               </div>
             ))}
@@ -113,7 +113,7 @@ export default function About() {
         >
           <h3 className="text-xl font-semibold text-white mb-6">{String(t('about.education') ?? 'Education & Certifications')}</h3>
           <div className="grid sm:grid-cols-2 gap-4">
-            {((t('profile.education') as Array<{ degree: string; school: string; dates: string; notes?: string }>) ?? profile.education).map((edu, i) => (
+            {((t('profile.education') as unknown as Array<{ degree: string; school: string; dates: string; notes?: string }>) ?? profile.education).map((edu, i) => (
               <motion.div
                 key={`${edu.school}-${edu.degree}-${i}`}
                 initial={animate(0, 12)}
@@ -160,8 +160,8 @@ export default function About() {
             <h3 className="text-xl font-semibold text-white mb-4">{String(t('about.languages') ?? 'Languages')}</h3>
             <div className="flex flex-wrap gap-2">
               {profile.languages.map(({ lang, level }, i) => {
-                const levels = (t('profile.languageLevels') as Record<string, string>) ?? {};
-                const names = (t('profile.langNames') as Record<string, string>) ?? {};
+                const levels = (t('profile.languageLevels') as unknown as Record<string, string>) ?? {};
+                const names = (t('profile.langNames') as unknown as Record<string, string>) ?? {};
                 return (
                   <span
                     key={`${lang}-${i}`}

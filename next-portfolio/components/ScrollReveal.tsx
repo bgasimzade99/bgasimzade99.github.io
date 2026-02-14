@@ -1,11 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, type Target } from 'framer-motion';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 type Variant = 'fadeUp' | 'fadeIn' | 'slideLeft' | 'slideRight' | 'scale';
 
-const variants: Record<Variant, object> = {
+const variants: Record<Variant, { initial: Target; visible: Target }> = {
   fadeUp: { initial: { opacity: 0, y: 32 }, visible: { opacity: 1, y: 0 } },
   fadeIn: { initial: { opacity: 0 }, visible: { opacity: 1 } },
   slideLeft: { initial: { opacity: 0, x: -40 }, visible: { opacity: 1, x: 0 } },
@@ -37,8 +37,8 @@ export default function ScrollReveal({
 
   return (
     <motion.div
-      initial={(v as { initial: object }).initial}
-      whileInView={(v as { visible: object }).visible}
+      initial={v.initial}
+      whileInView={v.visible}
       viewport={{ once: true, margin: '-50px' }}
       transition={{
         duration,

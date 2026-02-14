@@ -16,7 +16,7 @@ const FOOTER_LINKS = [
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
-  const linksObj = (t('footer.links') as Record<string, string>) ?? {};
+  const linksObj = (t('footer.links') as unknown as Record<string, string>) ?? {};
 
   return (
     <footer

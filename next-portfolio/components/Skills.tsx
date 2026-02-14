@@ -95,7 +95,7 @@ export default function Skills() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {profile.skillGroups.map((group, i) => {
-            const labels = (t('profile.skillGroupLabels') as Record<string, string>) ?? {};
+            const labels = (t('profile.skillGroupLabels') as unknown as Record<string, string>) ?? {};
             const label = labels[SKILL_GROUP_KEYS[i]] ?? group.label;
             return <SkillCard key={group.label} group={group} label={label} index={i} isInView={isInView} />;
           })}

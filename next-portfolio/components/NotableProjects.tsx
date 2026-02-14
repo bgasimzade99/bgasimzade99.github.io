@@ -165,7 +165,7 @@ export default function NotableProjects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {profile.projects.map((project, i) => {
-            const projData = (t('profile.projects') as Record<string, { shortDesc: string; highlights: string[] }>) ?? {};
+            const projData = (t('profile.projects') as unknown as Record<string, { shortDesc: string; highlights: string[] }>) ?? {};
             const translated = projData[project.slug];
             const shortDesc = translated?.shortDesc ?? project.shortDesc;
             const highlights = translated?.highlights ?? project.highlights ?? project.stack.slice(0, 4);
