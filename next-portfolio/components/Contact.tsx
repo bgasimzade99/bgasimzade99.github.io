@@ -88,9 +88,19 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
+      let data: { success?: boolean; error?: string } = {};
+      const text = await res.text();
+      if (text) {
+        try {
+          data = JSON.parse(text);
+        } catch {
+          data = { error: 'Invalid response from server' };
+        }
+      }
       if (!res.ok) {
-        throw new Error(data.error ?? 'Failed to send message');
+        throw new Error(
+          data.error ?? (res.status === 405 ? 'Contact form is not available. Please email directly.' : 'Failed to send message')
+        );
       }
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
