@@ -6,17 +6,19 @@ import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { profile } from '@/content/profile';
-
-const METRICS = [
-  { value: '10+', label: 'Projects shipped' },
-  { value: '5+', label: 'Team projects' },
-  { value: 'Production', label: 'Real user delivery' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function About() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   const reduced = useReducedMotion();
+  const { t } = useLanguage();
+  const highlights = (t('about.highlights') as string[] | undefined) ?? profile.aboutHighlights;
+  const metrics = [
+    { value: '10+', labelKey: 'projects' as const },
+    { value: '5+', labelKey: 'team' as const },
+    { value: 'Production', labelKey: 'production' as const },
+  ];
 
   const animate = (opacity: number, y: number) => ({ opacity, y });
   const trans = (d: number, delay = 0) =>
@@ -29,7 +31,7 @@ export default function About() {
       className="relative py-16 lg:py-20 border-t border-white/[0.05]"
       aria-labelledby="about-heading"
     >
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-[1fr,auto] gap-14 items-start">
           <motion.div
             initial={animate(0, 36)}
@@ -38,11 +40,11 @@ export default function About() {
             viewport={{ once: true, margin: '-60px' }}
           >
             <h2 id="about-heading" className="text-3xl lg:text-4xl font-bold tracking-[-0.028em] leading-[1.2] text-white mb-5">
-              About
+              {String(t('about.title') ?? 'About')}
             </h2>
-            <p className="text-base lg:text-lg text-white/62 leading-[1.7] mb-8">{profile.summary}</p>
+            <p className="text-base lg:text-lg text-white/62 leading-[1.7] mb-8">{String(t('about.summary') ?? profile.summary)}</p>
             <ul className="space-y-2.5 mb-10">
-              {profile.aboutHighlights.map((item, i) => (
+              {highlights.map((item, i) => (
                 <motion.li
                   key={item}
                   initial={animate(0, -10)}
@@ -69,13 +71,13 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/[0.1] bg-white/[0.03] text-white text-sm font-medium hover:border-white/[0.18] hover:bg-white/[0.05] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
               >
-                Download CV
+                {String(t('about.downloadCV') ?? 'Download CV')}
               </Link>
               <Link
                 href="#contact"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-500/90 hover:bg-teal-500 text-white text-sm font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
               >
-                Let&apos;s talk
+                {String(t('about.letsTalk') ?? "Let's talk")}
               </Link>
             </motion.div>
           </motion.div>
@@ -87,13 +89,15 @@ export default function About() {
             viewport={{ once: true, margin: '-60px' }}
             className="flex flex-col sm:flex-row lg:flex-col gap-4 lg:gap-5"
           >
-            {METRICS.map((m) => (
+            {metrics.map((m) => (
               <div
-                key={m.label}
-                className="px-5 py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm min-w-[140px]"
+                key={m.labelKey}
+                className="px-5 py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm min-w-[120px] sm:min-w-[140px]"
               >
                 <div className="text-2xl font-bold tracking-[-0.02em] text-teal-400/95 mb-0.5">{m.value}</div>
-                <div className="text-xs text-white/48 uppercase tracking-wider">{m.label}</div>
+                <div className="text-xs text-white/48 uppercase tracking-wider">
+                  {String((t('about.metrics') as Record<string, string>)?.[m.labelKey] ?? m.labelKey)}
+                </div>
               </div>
             ))}
           </motion.div>
@@ -107,11 +111,11 @@ export default function About() {
           viewport={{ once: true }}
           className="mt-16 pt-12 border-t border-white/[0.06]"
         >
-          <h3 className="text-xl font-semibold text-white mb-6">Education & Certifications</h3>
+          <h3 className="text-xl font-semibold text-white mb-6">{String(t('about.education') ?? 'Education & Certifications')}</h3>
           <div className="grid sm:grid-cols-2 gap-4">
-            {profile.education.map((edu, i) => (
+            {((t('profile.education') as Array<{ degree: string; school: string; dates: string; notes?: string }>) ?? profile.education).map((edu, i) => (
               <motion.div
-                key={`${edu.school}-${edu.degree}`}
+                key={`${edu.school}-${edu.degree}-${i}`}
                 initial={animate(0, 12)}
                 animate={isInView ? animate(1, 0) : animate(0, 12)}
                 transition={trans(0.4, 0.25 + i * 0.06)}
@@ -153,17 +157,21 @@ export default function About() {
             viewport={{ once: true }}
             className="mt-12 pt-8 border-t border-white/[0.06]"
           >
-            <h3 className="text-xl font-semibold text-white mb-4">Languages</h3>
+            <h3 className="text-xl font-semibold text-white mb-4">{String(t('about.languages') ?? 'Languages')}</h3>
             <div className="flex flex-wrap gap-2">
-              {profile.languages.map(({ lang, level }, i) => (
-                <span
-                  key={lang}
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-white/75 text-sm"
-                >
-                  <span className="font-medium text-white/90">{lang}</span>
-                  <span className="text-white/45 text-xs uppercase">{level}</span>
-                </span>
-              ))}
+              {profile.languages.map(({ lang, level }, i) => {
+                const levels = (t('profile.languageLevels') as Record<string, string>) ?? {};
+                const names = (t('profile.langNames') as Record<string, string>) ?? {};
+                return (
+                  <span
+                    key={`${lang}-${i}`}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-white/75 text-sm"
+                  >
+                    <span className="font-medium text-white/90">{names[lang] ?? lang}</span>
+                    <span className="text-white/45 text-xs uppercase">{levels[level] ?? level}</span>
+                  </span>
+                );
+              })}
             </div>
           </motion.div>
         )}

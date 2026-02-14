@@ -7,6 +7,7 @@ import { profile } from '@/content/profile';
 import HeroPhrase from '@/components/HeroPhrase';
 import TypewriterText from '@/components/TypewriterText';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const container = {
   hidden: { opacity: 0 },
@@ -36,6 +37,7 @@ const reducedVariants = {
 export default function Hero() {
   const techBadges = profile.skillGroups[0]?.skills.slice(0, 4).map((s) => s.name) ?? ['React', 'Next.js', 'Tailwind'];
   const reduced = useReducedMotion();
+  const { t } = useLanguage();
 
   return (
     <section
@@ -53,7 +55,7 @@ export default function Hero() {
       {/* Optional: subtle portrait background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute right-0 top-0 bottom-0 w-[70%] min-w-[500px] opacity-[0.12]"
+          className="absolute right-0 top-0 bottom-0 w-[70%] min-w-0 md:min-w-[400px] lg:min-w-[500px] max-w-full opacity-[0.12]"
           style={{
             maskImage: 'radial-gradient(ellipse 60% 80% at 85% 45%, black 20%, transparent 70%)',
             WebkitMaskImage: 'radial-gradient(ellipse 60% 80% at 85% 45%, black 20%, transparent 70%)',
@@ -76,7 +78,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-16">
           <div className="flex-1 min-w-0 order-1 lg:order-1">
             <motion.div
@@ -93,7 +95,7 @@ export default function Hero() {
                     <>
                       {profile.fullName}
                       <br />
-                      <span className="text-[0.92em] text-white/90">{profile.headline}</span>
+                      <span className="text-[0.92em] text-white/90">{String(t('profile.headline') ?? profile.headline)}</span>
                     </>
                   ) : (
                     <>
@@ -106,7 +108,7 @@ export default function Hero() {
                       <br />
                       <span className="text-[0.92em] text-white/90">
                         <TypewriterText
-                          text={profile.headline}
+                          text={String(t('profile.headline') ?? profile.headline)}
                           speed={42}
                           delay={300 + profile.fullName.length * 55 + 400}
                           cursor={true}
@@ -122,7 +124,7 @@ export default function Hero() {
                 variants={reduced ? reducedVariants.item : item}
                 className="text-lg sm:text-xl text-white/60 leading-[1.7] mb-10"
               >
-                Building web and mobile apps with React and React Native. <HeroPhrase />
+                {String(t('hero.subtitle') ?? 'Building web and mobile apps with React and React Native.')} <HeroPhrase />
               </motion.p>
 
               <motion.div
@@ -143,7 +145,7 @@ export default function Hero() {
                     <polyline points="7 10 12 15 17 10" />
                     <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
-                  Download CV
+                  {String(t('hero.downloadCV') ?? 'Download CV')}
                 </motion.a>
                 <motion.div
                   whileHover={reduced ? {} : { scale: 1.02, y: -2 }}
@@ -154,7 +156,7 @@ export default function Hero() {
                     href="#projects"
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.06] border border-white/[0.12] text-white font-medium hover:bg-white/[0.08] hover:border-white/[0.18] hover:shadow-[0_0_16px_rgba(255,255,255,0.04)] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
                   >
-                    View Projects
+                    {String(t('hero.viewProjects') ?? 'View Projects')}
                   </Link>
                 </motion.div>
                 <motion.div
@@ -166,7 +168,7 @@ export default function Hero() {
                     href="#contact"
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-white/[0.15] bg-white/[0.04] text-white font-medium hover:border-white/[0.22] hover:bg-white/[0.06] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
                   >
-                    Contact Me
+                    {String(t('hero.contactMe') ?? 'Contact Me')}
                   </Link>
                 </motion.div>
               </motion.div>

@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-const PHRASES = [
+const DEFAULT_PHRASES = [
   'From concept to production.',
   'React · Next.js · React Native.',
   'Clean code, scalable systems.',
@@ -19,8 +20,11 @@ export default function HeroPhrase() {
   const [index, setIndex] = useState(0);
   const [display, setDisplay] = useState('');
   const reduced = useReducedMotion();
+  const { t } = useLanguage();
+  const phrasesRaw = t('hero.phrases');
+  const PHRASES = Array.isArray(phrasesRaw) ? (phrasesRaw as string[]) : DEFAULT_PHRASES;
 
-  const fullText = PHRASES[index];
+  const fullText = PHRASES[index] ?? PHRASES[0];
 
   useEffect(() => {
     if (reduced) return;
@@ -31,7 +35,7 @@ export default function HeroPhrase() {
 
   useEffect(() => {
     if (reduced) {
-      setDisplay(PHRASES[0]);
+      setDisplay(PHRASES[0] ?? DEFAULT_PHRASES[0]);
       return;
     }
     if (phase === 'waiting') return;
@@ -62,7 +66,7 @@ export default function HeroPhrase() {
   }, [phase, display, fullText, index, reduced]);
 
   if (reduced) {
-    return <span>{PHRASES[0]}</span>;
+    return <span>{PHRASES[0] ?? DEFAULT_PHRASES[0]}</span>;
   }
 
   return (

@@ -3,6 +3,7 @@
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { profile } from '@/content/profile';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const SOCIAL_LINKS = [
   {
@@ -55,6 +56,7 @@ export default function Contact() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const { t } = useLanguage();
 
   const validate = useCallback(() => {
     const next: Record<string, string> = {};
@@ -103,7 +105,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative py-16 lg:py-20 border-t border-white/[0.05]" aria-labelledby="contact-heading">
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -118,12 +120,12 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
             <h2 id="contact-heading" className="text-3xl lg:text-4xl font-bold tracking-[-0.028em] leading-[1.2] text-white mb-3">
-              Contact
+              {String(t('contact.title') ?? 'Contact')}
             </h2>
             <p className="text-base text-white/58 mb-6 leading-relaxed">
-              Ready to discuss your next project.
+              {String(t('contact.subtitle') ?? 'Ready to discuss your next project.')}
             </p>
-            <p className="text-white/68 mb-1.5 text-xs font-medium uppercase tracking-wider">Email</p>
+            <p className="text-white/68 mb-1.5 text-xs font-medium uppercase tracking-wider">{String(t('contact.emailLabel') ?? t('contact.email') ?? 'Email')}</p>
             <a
               href={`mailto:${profile.socials.email}`}
               className="text-teal-400/95 hover:text-teal-400 font-medium text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded"
@@ -132,7 +134,7 @@ export default function Contact() {
             </a>
             {profile.socials.phone && (
               <>
-                <p className="text-white/68 mb-1.5 mt-4 text-xs font-medium uppercase tracking-wider">Phone</p>
+                <p className="text-white/68 mb-1.5 mt-4 text-xs font-medium uppercase tracking-wider">{String(t('contact.phoneLabel') ?? 'Phone')}</p>
                 <a
                   href={`tel:${profile.socials.phone.replace(/\s/g, '')}`}
                   className="text-teal-400/95 hover:text-teal-400 font-medium text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 rounded"
@@ -181,7 +183,7 @@ export default function Contact() {
           >
             <div>
               <label htmlFor="contact-name" className="block text-xs font-medium text-white/62 mb-1">
-                Name
+                {String(t('contact.name') ?? 'Name')}
               </label>
               <input
                 id="contact-name"
@@ -190,7 +192,7 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 className={inputClass}
-                placeholder="Your name"
+                placeholder={String(t('contact.namePlaceholder') ?? 'Your name')}
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? 'name-error' : undefined}
                 disabled={status === 'submitting'}
@@ -203,7 +205,7 @@ export default function Contact() {
             </div>
             <div>
               <label htmlFor="contact-email" className="block text-xs font-medium text-white/62 mb-1">
-                Email
+                {String(t('contact.email') ?? 'Email')}
               </label>
               <input
                 id="contact-email"
@@ -212,7 +214,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 className={inputClass}
-                placeholder="your@email.com"
+                placeholder={String(t('contact.emailPlaceholder') ?? 'your@email.com')}
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'email-error' : undefined}
                 disabled={status === 'submitting'}
@@ -225,7 +227,7 @@ export default function Contact() {
             </div>
             <div>
               <label htmlFor="contact-message" className="block text-xs font-medium text-white/62 mb-1">
-                Message
+                {String(t('contact.message') ?? 'Message')}
               </label>
               <textarea
                 id="contact-message"
@@ -234,7 +236,7 @@ export default function Contact() {
                 onChange={handleChange}
                 rows={4}
                 className={`${inputClass} resize-none`}
-                placeholder="Tell me about your project..."
+                placeholder={String(t('contact.messagePlaceholder') ?? 'Tell me about your project...')}
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? 'message-error' : undefined}
                 disabled={status === 'submitting'}
@@ -257,7 +259,7 @@ export default function Contact() {
               whileTap={{ scale: 0.98 }}
               className="w-full py-3 rounded-xl bg-teal-500/90 hover:bg-teal-500 hover:shadow-[0_0_24px_rgba(20,184,166,0.2)] disabled:bg-teal-500/50 text-white text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f] disabled:cursor-not-allowed"
             >
-              {status === 'submitting' ? 'Sending...' : status === 'success' ? 'Message sent ✓' : 'Send message'}
+              {status === 'submitting' ? String(t('contact.sending') ?? 'Sending...') : status === 'success' ? String(t('contact.sent') ?? 'Message sent ✓') : String(t('contact.send') ?? 'Send message')}
             </motion.button>
           </motion.form>
         </motion.div>

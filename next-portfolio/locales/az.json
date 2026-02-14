@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "home": "Ana səhifə",
+    "about": "Haqqında",
+    "skills": "Bacarıqlar",
+    "projects": "Layihələr",
+    "contact": "Əlaqə",
+    "contactMe": "Əlaqə",
+    "openMenu": "Menunu aç",
+    "closeMenu": "Menunu bağla"
+  },
+  "hero": {
+    "subtitle": "React və React Native ilə web və mobil tətbiqlər hazırlayıram.",
+    "downloadCV": "CV yüklə",
+    "viewProjects": "Layihələr",
+    "contactMe": "Əlaqə",
+    "phrases": ["İdeyadan istehsala.", "React · Next.js · React Native.", "Təmiz kod, genişlənə bilən sistemlər."]
+  },
+  "about": {
+    "title": "Haqqında",
+    "summary": "İdeyadan buraxılışa qədər React və React Native ilə istehsal üçün hazır web və mobil tətbiqlər quran front-end və mobil developer. Fiverr-da frellanser, Convertonix və BGTasks kimi AI tətbiqləri dizayn edən və hazırlayan BGDev-in qurucusu. Web və mobil platformalarda miqyaslanabilir arxitektura, performans və təmiz istifadəçi mərkəzli UX-ə diqqət yetirirəm.",
+    "highlights": [
+      "Beynəlxalq müştərilər üçün real web və mobil tətbiqlər təqdim edirəm",
+      "MVP-dən canlı SaaS platformalarına qədər tam məhsul dövrünü idarə edirəm",
+      "Genişlənə bilən sistemlər üçün güclü React, TypeScript, Tailwind əsası"
+    ],
+    "downloadCV": "CV yüklə",
+    "letsTalk": "Gəlin danışaq",
+    "metrics": { "projects": "Tamamlanmış layihə", "team": "Komanda layihəsi", "production": "Real istifadəçi çatdırılması" },
+    "education": "Təhsil və Sertifikatlar",
+    "languages": "Dillər"
+  },
+  "profile": {
+    "headline": "Front-End və Mobil Developer",
+    "education": [
+      { "degree": "B.Sc. Kompüter Elmləri və İnformasiya Texnologiyaları", "school": "Riqa Texniki Universiteti", "dates": "2022 – 2025", "notes": "Qiymət: 7.7" }
+    ],
+    "experience": [
+      { "role": "Front End Developer", "period": "2024 – Indiki", "bullets": ["Dünya üzrə müştərilər üçün istehsal üçün hazır web və mobil tətbiqlər təqdim edirəm.", "React, Next.js, Tailwind CSS ilə landinq səhifələrindən SaaS panelinə qədər responsiv UI qurururam.", "Buraxılış və iterasiyaya qədər konsepsiyadan tam məhsul dövründə müştərilərlə əməkdaşlıq edirəm."] },
+      { "role": "Mobil Developer Stajyor", "period": "İyun – Sentyabr 2025", "bullets": ["Firebase Firestore və Storage ilə canlı yeniləmələr və media yükləməli real vaxt mesajlaşma sistemi qurdum.", "UI performansını optimallaşdırdım və genişlənə bilən komponent arxitekturasını tətbiq etdim.", "Dinamik modallar və uzun basma qarşılıqlı əlaqələri daxil olmaqla qabaqcıl UX axınları dizayn etdim."] },
+      { "role": "Qurucu və Baş Developer", "period": "2024 – Indiki", "bullets": ["Convertonix və BGTasks daxil olmaqla AI tətbiqləri SaaS platformalarının inkişafına rəhbərlik etdim.", "React, Tailwind CSS və Firebase ilə genişlənə bilən front-end sistemləri qurdum.", "Konsepsiyadan buraxılış və iterasiyaya qədər tam məhsul dövrünü idarə etdim.", "Startap və kiçik bizneslər üçün istehsala hazır web platformaları təqdim etdim."] },
+      { "role": "Startap Araşdırma Stajyoru", "period": "Oktyabr 2025 – Yanvar 2026", "bullets": ["Erkən mərhələ SaaS məhsullarını, maliyyə modellərini və artım strategiyalarını təhlil etdim.", "Texnologiya startapları arasında innovasiya tendensiyalarını araşdırdım."] }
+    ],
+    "skillGroupLabels": { "frontend": "Frontend", "mobile": "Mobil", "backend": "Backend və API", "tools": "Alətlər və Digərləri" },
+    "languageLevels": { "Native": "Ana dil", "Fluent": "Sərbəst", "Intermediate": "Orta", "Basic": "Əsas" },
+    "langNames": { "Azerbaijani": "Azərbaycan", "English": "İngilis", "Turkish": "Türk", "Russian": "Rus", "Latvian": "Latış" },
+    "projects": {
+      "vesh": { "shortDesc": "Xaricdən sifariş — səyahət və alış-veriş platforması. Bronlaşdırma, yerli təcrübələr, real vaxt mövcudluq.", "highlights": ["Səyahətlər", "Xaricdən sifariş", "Real vaxt mövcudluq", "Responsiv UI"] },
+      "babak-auto-999": { "shortDesc": "Keyfiyyətli avtomobil ehtiyyat hissələri və aksesuarlar e-ticarəti. Məhsul kataloqu, səbət, responsiv dizayn.", "highlights": ["Məhsul kataloqu", "Səbət və ödəniş", "Mobil-first", "Keyfiyyətli avtomobil hissələri"] },
+      "convertonix": { "shortDesc": "AI tətbiqli fayl çevirici — 100+ formatı ani çevirin. PDF, Word, şəkillər, videolar.", "highlights": ["100+ format", "AI tətbiqli", "PDF, Word, şəkillər", "Ani çevirmə"] },
+      "bgdev": { "shortDesc": "Korporativ web inkişaf və AI həlləri. Web və SaaS məhsulları üçün tam xidmət agentliyi.", "highlights": ["Korporativ web", "AI həlləri", "SaaS inkişafı", "Full-stack"] },
+      "asnates-jsk": { "shortDesc": "Korporativ veb-sayt və rəqəmsal mövcudluq. Latviya bazarı üçün təmiz, peşəkar dizayn.", "highlights": ["Korporativ veb-sayt", "Responsiv dizayn", "Latviya bazarı"] },
+      "portfolio": { "shortDesc": "Next.js, TypeScript, Tailwind ilə müasir portfolio. Tünd tema, case studies, əhatəli.", "highlights": ["Tünd tema", "Case studies", "Əhatə", "SEO"] }
+    }
+  },
+  "skills": {
+    "title": "Bacarıqlar",
+    "subtitle": "İşlədiyim texnologiyalar və alətlər — layihə təcrübəsinə əsaslanan səviyyə.",
+    "learning": "Hal-hazırda öyrənirəm"
+  },
+  "work": {
+    "title": "Təcrübə",
+    "subtitle": "Peşəkar yol — rollar, məsuliyyətlər və texnologiya yığını."
+  },
+  "projects": {
+    "title": "Layihələr",
+    "subtitle": "Seçilmiş işlər — web tətbiqləri, mobil tətbiqlər və SaaS platformaları.",
+    "viewMore": "Daha çox",
+    "viewLive": "Canlı görüntü",
+    "viewProject": "Layihəyə bax",
+    "caseStudy": "Case Study",
+    "preview": "Önbaxış",
+    "liveDemo": "Canlı Demo Mövcuddur",
+    "clickToExplore": "Canlı saytı kəşf etmək üçün Layihəyə bax-a tıklayın",
+    "hoverToExplore": "Layihə xüsusiyyətlərini kəşf etmək üçün kartın üzərinə gəlin",
+    "features": "Xüsusiyyətlər"
+  },
+  "contact": {
+    "title": "Əlaqə",
+    "subtitle": "Növbəti layihənizi müzakirə etməyə hazıram.",
+    "emailLabel": "E-poçt",
+    "phoneLabel": "Telefon",
+    "name": "Ad",
+    "namePlaceholder": "Adınız",
+    "email": "E-poçt",
+    "emailPlaceholder": "sizin@email.com",
+    "message": "Mesaj",
+    "messagePlaceholder": "Layihəniz haqqında mənə yazın...",
+    "send": "Göndər",
+    "sending": "Göndərilir...",
+    "sent": "Göndərildi ✓"
+  },
+  "footer": {
+    "links": { "home": "Ana səhifə", "about": "Haqqında", "skills": "Bacarıqlar", "projects": "Layihələr", "contact": "Əlaqə" },
+    "copy": "© {year} BGDev. Bütün hüquqlar qorunur.",
+    "navigation": "Naviqasiya",
+    "contact": "Əlaqə",
+    "builtWith": "Next.js, TypeScript və Framer Motion ilə hazırlanıb"
+  }
+}

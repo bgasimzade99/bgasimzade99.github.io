@@ -3,17 +3,20 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { profile } from '@/content/profile';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FOOTER_LINKS = [
-  { href: '/#home', label: 'Home' },
-  { href: '/#about', label: 'About' },
-  { href: '/#skills', label: 'Skills' },
-  { href: '/#projects', label: 'Projects' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/#home', labelKey: 'home' as const },
+  { href: '/#about', labelKey: 'about' as const },
+  { href: '/#skills', labelKey: 'skills' as const },
+  { href: '/#projects', labelKey: 'projects' as const },
+  { href: '/#contact', labelKey: 'contact' as const },
 ];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
+  const linksObj = (t('footer.links') as Record<string, string>) ?? {};
 
   return (
     <footer
@@ -21,7 +24,7 @@ export default function Footer() {
       role="contentinfo"
       aria-label="Site footer"
     >
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
@@ -43,7 +46,7 @@ export default function Footer() {
               BGDev
             </Link>
             <p className="text-white/55 text-sm leading-relaxed max-w-sm mb-6">
-              {profile.summary}
+              {String(t('about.summary') ?? profile.summary)}
             </p>
             <div className="flex gap-4">
               <a
@@ -113,7 +116,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="text-xs font-semibold text-white/70 uppercase tracking-wider mb-4">Navigation</h3>
+            <h3 className="text-xs font-semibold text-white/70 uppercase tracking-wider mb-4">{String(t('footer.navigation') ?? 'Navigation')}</h3>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.href}>
@@ -121,7 +124,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-white/55 hover:text-teal-400 text-sm transition-colors duration-200"
                   >
-                    {link.label}
+                    {linksObj[link.labelKey] ?? link.labelKey}
                   </Link>
                 </li>
               ))}
@@ -134,7 +137,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="text-xs font-semibold text-white/70 uppercase tracking-wider mb-4">Contact</h3>
+            <h3 className="text-xs font-semibold text-white/70 uppercase tracking-wider mb-4">{String(t('footer.contact') ?? 'Contact')}</h3>
             <a
               href={`mailto:${profile.socials.email}`}
               className="block text-white/55 hover:text-teal-400 text-sm mb-2 transition-colors duration-200"
@@ -160,10 +163,10 @@ export default function Footer() {
           className="mt-16 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <p className="text-white/45 text-sm">
-            © {currentYear} {profile.fullName}. All rights reserved.
+            {String(t('footer.copy') ?? `© ${currentYear} BGDev. All rights reserved.`).replace('{year}', String(currentYear))}
           </p>
           <p className="text-white/35 text-xs">
-            Built with Next.js, TypeScript & Framer Motion
+            {String(t('footer.builtWith') ?? 'Built with Next.js, TypeScript & Framer Motion')}
           </p>
         </motion.div>
       </div>

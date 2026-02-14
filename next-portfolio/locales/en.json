@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "contactMe": "Contact me",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "subtitle": "Building web and mobile apps with React and React Native.",
+    "downloadCV": "Download CV",
+    "viewProjects": "View Projects",
+    "contactMe": "Contact Me",
+    "phrases": ["From idea to production.", "React · Next.js · React Native.", "Clean code, scalable systems."]
+  },
+  "about": {
+    "title": "About",
+    "summary": "Front-end and mobile developer building production-ready React and React Native applications from idea to launch. Freelancer on Fiverr and founder of BGDev, where I design and ship AI-powered SaaS products like Convertonix and BGTasks. Focused on scalable architecture, performance, and clean user-centered UX across web and mobile platforms.",
+    "highlights": [
+      "Delivering real-world web & mobile apps for international clients",
+      "Leading full product lifecycle — from MVP to live SaaS platforms",
+      "Strong React, TypeScript, Tailwind foundation for scalable systems"
+    ],
+    "downloadCV": "Download CV",
+    "letsTalk": "Let's talk",
+    "metrics": { "projects": "Projects shipped", "team": "Team projects", "production": "Real user delivery" },
+    "education": "Education & Certifications",
+    "languages": "Languages"
+  },
+  "profile": {
+    "headline": "Front-End & Mobile Developer",
+    "education": [
+      { "degree": "B.Sc. Computer Science & Information Technology", "school": "Riga Technical University", "dates": "2022 – 2025", "notes": "Grade: 7.7" }
+    ],
+    "experience": [
+      { "role": "Front End Developer", "period": "2024 – Present", "bullets": ["Delivering production-ready web and mobile applications for clients worldwide.", "Building responsive UIs with React, Next.js, Tailwind CSS — from landing pages to SaaS dashboards.", "Collaborating with clients on full product lifecycle — concept to deployment and iteration."] },
+      { "role": "Mobile Developer Intern", "period": "Jun – Sept 2025", "bullets": ["Built real-time messaging system using Firebase Firestore & Storage with live updates and media uploads.", "Optimized UI performance and implemented scalable component architecture.", "Designed advanced UX flows including dynamic modals and long-press interactions."] },
+      { "role": "Founder & Lead Developer", "period": "2024 – Present", "bullets": ["Led development of AI-powered SaaS platforms including Convertonix and BGTasks.", "Built scalable front-end systems using React, Tailwind CSS, and Firebase.", "Managed full product lifecycle from concept to deployment and iteration.", "Delivered production-ready web platforms for startups and small businesses."] },
+      { "role": "Startup Research Intern", "period": "Oct 2025 – Jan 2026", "bullets": ["Analyzed early-stage SaaS products, funding models, and growth strategies.", "Researched innovation trends across technology startups."] }
+    ],
+    "skillGroupLabels": { "frontend": "Frontend", "mobile": "Mobile", "backend": "Backend & APIs", "tools": "Tools & Others" },
+    "languageLevels": { "Native": "Native", "Fluent": "Fluent", "Intermediate": "Intermediate", "Basic": "Basic" },
+    "langNames": { "Azerbaijani": "Azerbaijani", "English": "English", "Turkish": "Turkish", "Russian": "Russian", "Latvian": "Latvian" },
+    "projects": {
+      "vesh": { "shortDesc": "Order from abroad — travel & shopping platform. Bookings, local experiences, real-time availability.", "highlights": ["Travels", "Order from abroad", "Real-time availability", "Responsive UI"] },
+      "babak-auto-999": { "shortDesc": "Quality auto parts and accessories e-commerce. Product catalog, cart, responsive design.", "highlights": ["Product catalog", "Cart & checkout", "Mobile-first", "Quality auto parts"] },
+      "convertonix": { "shortDesc": "AI-powered file converter — convert 100+ formats instantly. PDF, Word, images, videos.", "highlights": ["100+ formats", "AI-powered", "PDF, Word, images", "Instant conversion"] },
+      "bgdev": { "shortDesc": "Enterprise web development & AI solutions. Full-service agency for web and SaaS products.", "highlights": ["Enterprise web", "AI solutions", "SaaS development", "Full-stack"] },
+      "asnates-jsk": { "shortDesc": "Corporate website and digital presence. Clean, professional design for Latvian market.", "highlights": ["Corporate website", "Responsive design", "Latvian market"] },
+      "portfolio": { "shortDesc": "Modern portfolio with Next.js, TypeScript, Tailwind. Dark theme, case studies, accessible.", "highlights": ["Dark theme", "Case studies", "Accessibility", "SEO"] }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies and tools I work with — proficiency based on project experience.",
+    "learning": "Currently Learning"
+  },
+  "work": {
+    "title": "Experience",
+    "subtitle": "Professional journey — roles, responsibilities, and tech stacks."
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected work — web apps, mobile apps, and SaaS platforms.",
+    "viewMore": "View more",
+    "viewLive": "View live",
+    "viewProject": "View Project",
+    "caseStudy": "Case Study",
+    "preview": "Preview",
+    "liveDemo": "Live Demo Available",
+    "clickToExplore": "Click View Project to explore the live site",
+    "hoverToExplore": "Hover over the card to explore project features",
+    "features": "Features"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Ready to discuss your next project.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "send": "Send message",
+    "sending": "Sending...",
+    "sent": "Message sent ✓"
+  },
+  "footer": {
+    "links": { "home": "Home", "about": "About", "skills": "Skills", "projects": "Projects", "contact": "Contact" },
+    "copy": "© {year} BGDev. All rights reserved.",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "builtWith": "Built with Next.js, TypeScript & Framer Motion"
+  }
+}

@@ -7,23 +7,27 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollSpy } from '@/hooks/useScrollSpy';
 import { useScrollState } from '@/hooks/useScrollState';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
+import { useLanguage } from '@/contexts/LanguageContext';
+import type { Locale } from '@/contexts/LanguageContext';
 
 const NAV_ITEMS = [
-  { href: '/#home', label: 'Home', id: 'home' },
-  { href: '/#about', label: 'About', id: 'about' },
-  { href: '/#skills', label: 'Skills', id: 'skills' },
-  { href: '/#projects', label: 'Projects', id: 'projects' },
-  { href: '/#contact', label: 'Contact', id: 'contact' },
+  { href: '/#home', labelKey: 'nav.home', id: 'home' },
+  { href: '/#about', labelKey: 'nav.about', id: 'about' },
+  { href: '/#skills', labelKey: 'nav.skills', id: 'skills' },
+  { href: '/#projects', labelKey: 'nav.projects', id: 'projects' },
+  { href: '/#contact', labelKey: 'nav.contact', id: 'contact' },
 ] as const;
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
 
 function NavLink({
   item,
+  label,
   isActive,
   onNavigate,
 }: {
   item: (typeof NAV_ITEMS)[number];
+  label: string;
   isActive: boolean;
   onNavigate: (href: string) => void;
 }) {
@@ -57,7 +61,7 @@ function NavLink({
         isActive ? 'text-white' : 'text-white/75 hover:text-white'
       }`}
     >
-      {item.label}
+      {label}
       {isActive && (
         <motion.span
           layoutId="nav-underline"
@@ -70,6 +74,12 @@ function NavLink({
   );
 }
 
+const LOCALES: { code: Locale; label: string }[] = [
+  { code: 'en', label: 'EN' },
+  { code: 'az', label: 'AZ' },
+  { code: 'tr', label: 'TR' },
+];
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -77,6 +87,15 @@ export default function Navbar() {
   const activeSection = useScrollSpy(pathname === '/' ? SECTION_IDS : []);
   const scrolled = useScrollState(40);
   const scrollTo = useSmoothScroll();
+  const { locale, setLocale, t } = useLanguage();
+
+  const navLabels: Record<string, string> = {
+    'nav.home': String(t('nav.home') ?? 'Home'),
+    'nav.about': String(t('nav.about') ?? 'About'),
+    'nav.skills': String(t('nav.skills') ?? 'Skills'),
+    'nav.projects': String(t('nav.projects') ?? 'Projects'),
+    'nav.contact': String(t('nav.contact') ?? 'Contact'),
+  };
 
   const handleNavigate = useCallback(
     (href: string) => {
@@ -131,7 +150,7 @@ export default function Navbar() {
       aria-label="Main navigation"
     >
       <nav
-        className="w-full max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between"
+        className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between"
         aria-label="Primary navigation"
       >
         <Link
@@ -167,12 +186,30 @@ export default function Navbar() {
         >
           {NAV_ITEMS.filter((i) => i.id !== 'contact').map((item) => (
             <li key={item.href} role="none">
-              <NavLink item={item} isActive={activeSection === item.id} onNavigate={handleNavigate} />
+              <NavLink item={item} label={navLabels[item.labelKey]} isActive={activeSection === item.id} onNavigate={handleNavigate} />
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <div className="flex rounded-lg bg-white/[0.04] border border-white/[0.06] p-0.5" role="group" aria-label="Language">
+            {LOCALES.map((l) => (
+              <button
+                key={l.code}
+                type="button"
+                onClick={() => setLocale(l.code)}
+                className={`px-2 py-1 text-xs font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 ${
+                  locale === l.code
+                    ? 'bg-teal-500/20 text-teal-400'
+                    : 'text-white/60 hover:text-white/80'
+                }`}
+                aria-pressed={locale === l.code}
+                aria-label={`${l.code === 'en' ? 'English' : l.code === 'az' ? 'Azərbaycan' : 'Türkçe'}`}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
           <Link
             href="/#contact"
             onClick={(e) => {
@@ -188,9 +225,9 @@ export default function Navbar() {
               }
             }}
             className="hidden lg:inline-flex px-5 py-2.5 rounded-full border border-teal-500/50 bg-teal-500/10 text-white text-sm font-medium hover:border-teal-500/70 hover:bg-teal-500/15 hover:shadow-[0_0_24px_rgba(20,184,166,0.2)] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
-            aria-label="Contact me"
+            aria-label={String(t('nav.contactMe') ?? 'Contact me')}
           >
-            Contact
+            {navLabels['nav.contact']}
           </Link>
           <button
             type="button"
@@ -198,7 +235,7 @@ export default function Navbar() {
             className="lg:hidden p-2.5 rounded-lg text-white/80 hover:text-white hover:bg-white/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-label={mobileOpen ? String(t('nav.closeMenu') ?? 'Close menu') : String(t('nav.openMenu') ?? 'Open menu')}
           >
             {mobileOpen ? (
               <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden>
@@ -251,7 +288,7 @@ export default function Navbar() {
                         : 'text-white/80 hover:text-white hover:bg-white/5'
                     }`}
                   >
-                    {item.label}
+                    {navLabels[item.labelKey]}
                   </Link>
                 </li>
               ))}

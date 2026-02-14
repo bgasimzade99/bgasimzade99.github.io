@@ -3,13 +3,18 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { profile } from '@/content/profile';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+const SKILL_GROUP_KEYS = ['frontend', 'mobile', 'backend', 'tools'] as const;
 
 function SkillCard({
   group,
+  label,
   index,
   isInView,
 }: {
   group: (typeof profile.skillGroups)[0];
+  label: string;
   index: number;
   isInView: boolean;
 }) {
@@ -23,7 +28,7 @@ function SkillCard({
     >
       <div className="flex items-center gap-2 mb-4">
         <span className="text-teal-400/90 text-lg">{group.icon ?? '◆'}</span>
-        <h3 className="text-sm font-semibold text-white uppercase tracking-wider">{group.label}</h3>
+        <h3 className="text-sm font-semibold text-white uppercase tracking-wider">{label}</h3>
       </div>
       <div className="space-y-3">
         {group.skills.map((skill, i) => (
@@ -62,6 +67,7 @@ function SkillCard({
 export default function Skills() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const { t } = useLanguage();
 
   return (
     <section
@@ -70,7 +76,7 @@ export default function Skills() {
       className="relative py-16 lg:py-20 border-t border-white/[0.05] overflow-hidden"
       aria-labelledby="skills-heading"
     >
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 36 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -80,17 +86,19 @@ export default function Skills() {
             id="skills-heading"
             className="text-3xl lg:text-4xl font-bold tracking-[-0.028em] leading-[1.2] text-white mb-3"
           >
-            Skills
+            {String(t('skills.title') ?? 'Skills')}
           </h2>
           <p className="text-base text-white/58 max-w-xl mb-12 leading-relaxed">
-            Technologies and tools I work with — proficiency based on project experience.
+            {String(t('skills.subtitle') ?? 'Technologies and tools I work with — proficiency based on project experience.')}
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {profile.skillGroups.map((group, i) => (
-            <SkillCard key={group.label} group={group} index={i} isInView={isInView} />
-          ))}
+          {profile.skillGroups.map((group, i) => {
+            const labels = (t('profile.skillGroupLabels') as Record<string, string>) ?? {};
+            const label = labels[SKILL_GROUP_KEYS[i]] ?? group.label;
+            return <SkillCard key={group.label} group={group} label={label} index={i} isInView={isInView} />;
+          })}
         </div>
 
         {profile.learning && profile.learning.length > 0 && (
@@ -100,12 +108,12 @@ export default function Skills() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-10 rounded-xl p-5 bg-white/[0.02] border border-white/[0.04] border-dashed"
           >
-            <h4 className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-3">Currently Learning</h4>
+            <h4 className="text-xs font-semibold text-white/50 uppercase tracking-wider mb-3">{String(t('skills.learning') ?? 'Currently Learning')}</h4>
             <div className="flex flex-wrap gap-2">
               {profile.learning.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-white/555 text-sm"
+                  className="px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-white/55 text-sm"
                 >
                   {tech}
                 </span>

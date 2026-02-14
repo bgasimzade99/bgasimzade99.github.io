@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { profile } from '@/content/profile';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   mobile: (
@@ -82,9 +83,11 @@ function HoverIcons({
 function ProjectPreviewArea({
   project,
   onOpenImage,
+  previewLabel = 'Preview',
 }: {
   project: (typeof profile.projects)[0];
   onOpenImage: () => void;
+  previewLabel?: string;
 }) {
   const color = CATEGORY_COLORS[project.category] ?? '#0c4a6e';
   return (
@@ -95,7 +98,7 @@ function ProjectPreviewArea({
       }}
     >
       <span className="absolute top-2.5 left-2.5 z-10 px-2 py-0.5 rounded text-[10px] font-medium text-white/95 uppercase tracking-wider">
-        ▷ Preview
+        ▷ {previewLabel}
       </span>
       {project.image ? (
         <>
@@ -117,7 +120,7 @@ function ProjectPreviewArea({
       )}
       <HoverIcons project={project} onOpenImage={onOpenImage} />
       <span className="absolute bottom-3 left-0 right-0 text-center text-xs font-semibold text-white drop-shadow-sm">
-        Preview
+        {previewLabel}
       </span>
     </div>
   );
@@ -126,6 +129,7 @@ function ProjectPreviewArea({
 export default function NotableProjects() {
   const reduced = useReducedMotion();
   const [lightboxProject, setLightboxProject] = useState<(typeof profile.projects)[0] | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -141,7 +145,7 @@ export default function NotableProjects() {
       className="relative py-16 lg:py-20 overflow-hidden"
       aria-labelledby="projects-heading"
     >
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -152,15 +156,20 @@ export default function NotableProjects() {
             id="projects-heading"
             className="text-3xl lg:text-4xl font-bold tracking-[-0.028em] leading-[1.2] text-white mb-3"
           >
-            Projects
+            {String(t('projects.title') ?? 'Projects')}
           </h2>
           <p className="text-base text-white/58 max-w-xl mb-12 leading-relaxed">
-            Selected work — production apps and full-stack demos.
+            {String(t('projects.subtitle') ?? 'Selected work — web apps, mobile apps, and SaaS platforms.')}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {profile.projects.map((project, i) => (
+          {profile.projects.map((project, i) => {
+            const projData = (t('profile.projects') as Record<string, { shortDesc: string; highlights: string[] }>) ?? {};
+            const translated = projData[project.slug];
+            const shortDesc = translated?.shortDesc ?? project.shortDesc;
+            const highlights = translated?.highlights ?? project.highlights ?? project.stack.slice(0, 4);
+            return (
             <motion.article
               key={project.id}
               initial={{ opacity: 0, y: 36 }}
@@ -173,6 +182,7 @@ export default function NotableProjects() {
               <ProjectPreviewArea
                 project={project}
                 onOpenImage={() => project.image && setLightboxProject(project)}
+                previewLabel={String(t('projects.preview') ?? 'Preview')}
               />
 
               <div className="p-5">
@@ -189,22 +199,22 @@ export default function NotableProjects() {
                 </div>
 
                 <p className="text-sm text-white/55 mb-3 leading-relaxed line-clamp-3">
-                  {project.shortDesc}
+                  {shortDesc}
                 </p>
 
                 <p className="text-xs text-teal-400/90 font-medium mb-3">
-                  ▷ {project.liveUrl ? 'Live Demo Available' : 'Case Study'}
+                  ▷ {project.liveUrl ? String(t('projects.liveDemo') ?? 'Live Demo Available') : String(t('projects.caseStudy') ?? 'Case Study')}
                 </p>
                 <p className="text-[11px] text-white/40 mb-4">
                   {project.liveUrl
-                    ? 'Click View Project to explore the live site'
-                    : 'Hover over the card to explore project features'}
+                    ? String(t('projects.clickToExplore') ?? 'Click View Project to explore the live site')
+                    : String(t('projects.hoverToExplore') ?? 'Hover over the card to explore project features')}
                 </p>
 
                 <div className="mb-4">
-                  <p className="text-[11px] font-semibold text-white/50 uppercase tracking-wider mb-2">Features:</p>
+                  <p className="text-[11px] font-semibold text-white/50 uppercase tracking-wider mb-2">{String(t('projects.features') ?? 'Features')}:</p>
                   <div className="flex flex-wrap gap-1.5">
-                    {(project.highlights ?? project.stack.slice(0, 4)).slice(0, 4).map((tag) => (
+                    {highlights.slice(0, 4).map((tag) => (
                       <span
                         key={tag}
                         className="text-[11px] px-2 py-0.5 rounded-md bg-teal-500/20 text-teal-400 font-medium"
@@ -213,7 +223,7 @@ export default function NotableProjects() {
                       </span>
                     ))}
                     {project.stack
-                      .filter((t) => !(project.highlights ?? []).includes(t))
+                      .filter((tech) => !highlights.includes(tech))
                       .slice(0, 5)
                       .map((tag) => (
                         <span
@@ -238,7 +248,7 @@ export default function NotableProjects() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                       </svg>
-                      View Project
+                      {String(t('projects.viewProject') ?? 'View Project')}
                     </a>
                   ) : (
                     <Link
@@ -249,7 +259,7 @@ export default function NotableProjects() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                       </svg>
-                      Case Study
+                      {String(t('projects.caseStudy') ?? 'Case Study')}
                     </Link>
                   )}
                   <Link
@@ -264,7 +274,8 @@ export default function NotableProjects() {
                 </div>
               </div>
             </motion.article>
-          ))}
+            );
+          })}
         </div>
 
         <motion.div
@@ -280,7 +291,7 @@ export default function NotableProjects() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-teal-500/90 hover:bg-teal-500 text-white text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
           >
-            View more
+            {String(t('projects.viewMore') ?? 'View more')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>

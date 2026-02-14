@@ -1,14 +1,22 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Sora } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import AmbientBackground from '@/components/AmbientBackground';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 const sora = Sora({
   subsets: ['latin'],
   variable: '--font-sora',
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
 
 export const metadata: Metadata = {
   title: 'Babak Gasimzade | Front-End & Mobile Developer',
@@ -48,11 +56,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={sora.variable}>
-      <body className="font-sans antialiased bg-dark-900 text-white">
-        <AmbientBackground />
-        <Navbar />
-        {children}
+    <html lang="en" className={sora.variable} suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover" />
+      </head>
+      <body className="font-sans antialiased bg-dark-900 text-white overflow-x-hidden">
+        <LanguageProvider>
+          <AmbientBackground />
+          <Navbar />
+          <div className="overflow-x-hidden w-full max-w-[100vw] min-w-0">{children}</div>
+        </LanguageProvider>
       </body>
     </html>
   );

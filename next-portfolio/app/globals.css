@@ -12,6 +12,27 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  min-width: 0;
+}
+
+/* Prevent horizontal scroll on mobile - no stretching page */
+body {
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+main, [role="main"] {
+  overflow-x: hidden;
+  max-width: 100%;
+  min-width: 0;
 }
 
 /* Section reveal - subtle fade for scroll */
@@ -28,8 +49,7 @@ html {
 
 body {
   background-color: var(--bg-dark);
-  position: relative;
-  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 /* Vignette */
@@ -123,6 +143,12 @@ body::after {
 *:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 2px;
+}
+
+/* Mobile: prevent images/embeds from causing horizontal scroll */
+img, video, iframe, object {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Respect prefers-reduced-motion */
