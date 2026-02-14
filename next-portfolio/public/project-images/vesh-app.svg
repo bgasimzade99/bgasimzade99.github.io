@@ -1,0 +1,112 @@
+<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B985;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="phoneGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#F8FAFF;stop-opacity:0.9" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="300" fill="url(#bgGradient)"/>
+  
+  <!-- Animated Background Pattern -->
+  <defs>
+    <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1" fill="rgba(255,255,255,0.1)"/>
+    </pattern>
+  </defs>
+  <rect width="500" height="300" fill="url(#dots)"/>
+  
+  <!-- Floating Elements -->
+  <circle cx="80" cy="60" r="4" fill="rgba(255,255,255,0.6)" filter="url(#glow)"/>
+  <circle cx="420" cy="100" r="3" fill="rgba(255,255,255,0.4)" filter="url(#glow)"/>
+  <circle cx="380" cy="180" r="5" fill="rgba(255,255,255,0.3)" filter="url(#glow)"/>
+  
+  <!-- Main Phone -->
+  <g transform="translate(250,150)">
+    <!-- Phone Body -->
+    <rect x="-40" y="-80" width="80" height="160" rx="20" fill="url(#phoneGradient)" stroke="rgba(255,255,255,0.8)" stroke-width="2"/>
+    
+    <!-- Screen -->
+    <rect x="-35" y="-75" width="70" height="150" rx="15" fill="#1F2937"/>
+    
+    <!-- App Interface -->
+    <!-- Header -->
+    <rect x="-35" y="-75" width="70" height="25" fill="#10B985" rx="15"/>
+    <text x="0" y="-60" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">Vesh</text>
+    
+    <!-- Travel Icons -->
+    <g transform="translate(0,-30)">
+      <!-- Plane -->
+      <path d="M-20 -10 L20 -10 L15 -5 L-15 -5 Z" fill="#FCD34D"/>
+      <circle cx="0" cy="-15" r="3" fill="#FCD34D"/>
+      
+      <!-- Hotel -->
+      <rect x="-15" y="5" width="30" height="15" fill="#8B5CF6" rx="2"/>
+      <rect x="-10" y="8" width="6" height="4" fill="white"/>
+      <rect x="4" y="8" width="6" height="4" fill="white"/>
+      <rect x="-10" y="13" width="6" height="4" fill="white"/>
+      <rect x="4" y="13" width="6" height="4" fill="white"/>
+      
+      <!-- Car -->
+      <rect x="-12" y="25" width="24" height="8" fill="#EF4444" rx="4"/>
+      <circle cx="-8" cy="33" r="3" fill="#1F2937"/>
+      <circle cx="8" cy="33" r="3" fill="#1F2937"/>
+    </g>
+    
+    <!-- Navigation -->
+    <rect x="-35" y="65" width="70" height="20" fill="#374151" rx="10"/>
+    <circle cx="-15" cy="75" r="4" fill="#10B985"/>
+    <circle cx="0" cy="75" r="4" fill="rgba(255,255,255,0.5)"/>
+    <circle cx="15" cy="75" r="4" fill="rgba(255,255,255,0.5)"/>
+  </g>
+  
+  <!-- 80K Users Badge -->
+  <g transform="translate(400,80)">
+    <circle cx="0" cy="0" r="25" fill="#F59E0B" stroke="white" stroke-width="2"/>
+    <text x="0" y="-5" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">80K</text>
+    <text x="0" y="8" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">Users</text>
+  </g>
+  
+  <!-- App Store Badges -->
+  <g transform="translate(250,250)">
+    <rect x="-60" y="-8" width="50" height="16" fill="#000000" rx="8"/>
+    <text x="-35" y="2" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">App Store</text>
+    
+    <rect x="10" y="-8" width="50" height="16" fill="#01875F" rx="8"/>
+    <text x="35" y="2" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Play Store</text>
+  </g>
+  
+  <!-- Text -->
+  <text x="250" y="40" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">Vesh.az</text>
+  <text x="250" y="60" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle">Travel & Tourism App</text>
+  
+  <!-- Tech Stack Icons -->
+  <g transform="translate(250,280)">
+    <rect x="-60" y="-8" width="16" height="16" fill="#61DAFB" rx="2"/>
+    <text x="-52" y="2" font-family="Arial, sans-serif" font-size="8" fill="black" text-anchor="middle">RN</text>
+    
+    <rect x="-40" y="-8" width="16" height="16" fill="#000000" rx="2"/>
+    <text x="-32" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">EX</text>
+    
+    <rect x="-20" y="-8" width="16" height="16" fill="#F7DF1E" rx="2"/>
+    <text x="-12" y="2" font-family="Arial, sans-serif" font-size="8" fill="black" text-anchor="middle">JS</text>
+    
+    <rect x="0" y="-8" width="16" height="16" fill="#10B985" rx="2"/>
+    <text x="8" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">UI</text>
+    
+    <rect x="20" y="-8" width="16" height="16" fill="#FF6B6B" rx="2"/>
+    <text x="28" y="2" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">80K</text>
+  </g>
+</svg> 

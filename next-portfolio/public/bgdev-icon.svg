@@ -1,0 +1,12 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgdev-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <!-- B: vertical stem + top bowl + bottom bowl -->
+  <path fill="url(#bgdev-grad)" d="M5 4h2.2c2.5 0 4.3 1.8 4.3 4.2 0 1.4-.6 2.6-1.6 3.4.9.7 1.5 1.8 1.5 3.1 0 2.5-1.9 4.5-4.4 4.5H5V4zm1.5 6.2h.7c1.3 0 2.2-.9 2.2-2.2s-.9-2.2-2.2-2.2h-.7v4.4zm0 5.6h1.2c1.5 0 2.6-1.1 2.6-2.5s-1.1-2.5-2.6-2.5H6.5v5z"/>
+  <!-- G: C-shape with crossbar and descender -->
+  <path fill="url(#bgdev-grad)" d="M12.5 8c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5c.6 0 1.2-.1 1.7-.4l-.4-1.2c-.4.2-.8.3-1.3.3-1.7 0-3-1.3-3-3s1.3-3 3-3c.6 0 1.1.2 1.5.5l.5-1.2c-.5-.4-1.1-.6-1.8-.6zm2 5.5h-2v-1.5h2.5v-1.2l-3.5-2v6.2h1.5v-1.5z"/>
+</svg>
