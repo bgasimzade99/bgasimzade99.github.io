@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     apple: '/image.png',
   },
   description:
-    "Junior Front-End & Mobile Developer. I build web and mobile applications with React and React Native. Looking for opportunities to grow and deliver real results.",
+    "Front-End & Mobile Developer. I build web and mobile applications with React and React Native. Looking for opportunities to grow and deliver real results.",
   keywords: [
     'Babak Gasimzade',
     'Frontend Developer',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Babak Gasimzade', url: 'https://www.bgdev.dev' }],
   openGraph: {
-    title: 'Babak Gasimzade | Junior Front-End & Mobile Developer',
+    title: 'Babak Gasimzade | Front-End & Mobile Developer',
     description:
       "I build web and mobile applications with React and React Native. Looking for opportunities to grow and deliver real results.",
     url: 'https://www.bgdev.dev',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Babak Gasimzade | Junior Front-End & Mobile Developer',
+    title: 'Babak Gasimzade | Front-End & Mobile Developer',
   },
   robots: 'index, follow',
 };

@@ -59,7 +59,7 @@ export interface SkillGroup {
 
 export const profile = {
   fullName: 'Babak Gasimzade',
-  headline: 'Junior Front-End & Mobile Developer',
+  headline: 'Front-End & Mobile Developer',
   location: 'Riga, Latvia',
   positioning:
     'I build web and mobile applications with React and React Native — from product ideas to production delivery.',
