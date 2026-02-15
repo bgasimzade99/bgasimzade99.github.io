@@ -28,10 +28,11 @@
     "letsTalk": "Let's talk",
     "metrics": { "projects": "Projects shipped", "team": "Team projects", "production": "Real user delivery" },
     "education": "Education & Certifications",
-    "languages": "Languages"
+    "languages": "Languages",
+    "languagesSubtitle": "Spoken languages and proficiency."
   },
   "profile": {
-    "headline": "Front-End & Mobile Developer",
+    "headline": "Junior Front-End & Mobile Developer",
     "education": [
       { "degree": "B.Sc. Computer Science & Information Technology", "school": "Riga Technical University", "dates": "2022 – 2025", "notes": "Grade: 7.7" }
     ],
@@ -41,7 +42,7 @@
       { "role": "Founder & Lead Developer", "period": "2024 – Present", "bullets": ["Led development of AI-powered SaaS platforms including Convertonix and BGTasks.", "Built scalable front-end systems using React, Tailwind CSS, and Firebase.", "Managed full product lifecycle from concept to deployment and iteration.", "Delivered production-ready web platforms for startups and small businesses."] },
       { "role": "Startup Research Intern", "period": "Oct 2025 – Jan 2026", "bullets": ["Analyzed early-stage SaaS products, funding models, and growth strategies.", "Researched innovation trends across technology startups."] }
     ],
-    "skillGroupLabels": { "frontend": "Frontend", "mobile": "Mobile", "backend": "Backend & APIs", "tools": "Tools & Others" },
+    "skillGroupLabels": { "coreStack": "Core Stack", "frontend": "Frontend Development", "backend": "Backend & Databases", "mobile": "Mobile Development", "engineering": "Engineering & Tools" },
     "languageLevels": { "Native": "Native", "Fluent": "Fluent", "Intermediate": "Intermediate", "Basic": "Basic" },
     "langNames": { "Azerbaijani": "Azerbaijani", "English": "English", "Turkish": "Turkish", "Russian": "Russian", "Latvian": "Latvian" },
     "projects": {

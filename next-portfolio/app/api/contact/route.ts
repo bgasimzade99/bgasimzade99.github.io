@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Email service not configured. Set SMTP_USER and SMTP_PASS in .env.local',
+          error: 'Email service not configured. Set SMTP_USER and SMTP_PASS in Vercel Environment Variables.',
         },
         { status: 503 }
       );

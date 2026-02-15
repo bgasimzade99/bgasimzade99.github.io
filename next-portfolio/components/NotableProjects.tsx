@@ -142,7 +142,7 @@ export default function NotableProjects() {
   return (
     <div
       id="projects"
-      className="relative py-16 lg:py-20 overflow-hidden"
+      className="relative py-10 md:py-16 lg:py-20 overflow-hidden"
       aria-labelledby="projects-heading"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -154,16 +154,43 @@ export default function NotableProjects() {
         >
           <h2
             id="projects-heading"
-            className="text-3xl lg:text-4xl font-bold tracking-[-0.028em] leading-[1.2] text-white mb-3"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-[-0.028em] leading-[1.2] text-white mb-2 md:mb-3"
           >
             {String(t('projects.title') ?? 'Projects')}
           </h2>
-          <p className="text-base text-white/58 max-w-xl mb-12 leading-relaxed">
+          <p className="text-sm md:text-base text-white/58 max-w-xl mb-8 md:mb-12 leading-relaxed">
             {String(t('projects.subtitle') ?? 'Selected work — web apps, mobile apps, and SaaS platforms.')}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile: horizontal swipeable cards */}
+        <div className="md:hidden flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 scroll-x-touch snap-x snap-mandatory">
+          {profile.projects.map((project, i) => {
+            const projData = (t('profile.projects') as unknown as Record<string, { shortDesc: string; highlights: string[] }>) ?? {};
+            const translated = projData[project.slug];
+            const shortDesc = translated?.shortDesc ?? project.shortDesc;
+            return (
+              <div key={project.id} className="min-w-[85vw] max-w-[85vw] shrink-0 snap-start">
+                <Link href={`/projects/${project.slug}`} className="block">
+                  <div className="rounded-2xl overflow-hidden bg-white/[0.03] border border-white/[0.06] shadow-[0_4px_20px_-6px_rgba(0,0,0,0.4)] active:scale-[0.99] transition-transform">
+                    <ProjectPreviewArea
+                      project={project}
+                      onOpenImage={() => project.image && setLightboxProject(project)}
+                      previewLabel={String(t('projects.preview') ?? 'Preview')}
+                    />
+                    <div className="p-4">
+                      <h3 className="text-base font-bold text-white mb-1">{project.title}</h3>
+                      <p className="text-xs text-white/55 line-clamp-2">{shortDesc}</p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: grid */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6">
           {profile.projects.map((project, i) => {
             const projData = (t('profile.projects') as unknown as Record<string, { shortDesc: string; highlights: string[] }>) ?? {};
             const translated = projData[project.slug];

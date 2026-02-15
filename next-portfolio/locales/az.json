@@ -28,10 +28,11 @@
     "letsTalk": "Gəlin danışaq",
     "metrics": { "projects": "Tamamlanmış layihə", "team": "Komanda layihəsi", "production": "Real istifadəçi çatdırılması" },
     "education": "Təhsil və Sertifikatlar",
-    "languages": "Dillər"
+    "languages": "Dillər",
+    "languagesSubtitle": "Danışdığım dillər və səviyyə."
   },
   "profile": {
-    "headline": "Front-End və Mobil Developer",
+    "headline": "Junior Front-End və Mobil Developer",
     "education": [
       { "degree": "B.Sc. Kompüter Elmləri və İnformasiya Texnologiyaları", "school": "Riqa Texniki Universiteti", "dates": "2022 – 2025", "notes": "Qiymət: 7.7" }
     ],
@@ -41,7 +42,7 @@
       { "role": "Qurucu və Baş Developer", "period": "2024 – Indiki", "bullets": ["Convertonix və BGTasks daxil olmaqla AI tətbiqləri SaaS platformalarının inkişafına rəhbərlik etdim.", "React, Tailwind CSS və Firebase ilə genişlənə bilən front-end sistemləri qurdum.", "Konsepsiyadan buraxılış və iterasiyaya qədər tam məhsul dövrünü idarə etdim.", "Startap və kiçik bizneslər üçün istehsala hazır web platformaları təqdim etdim."] },
       { "role": "Startap Araşdırma Stajyoru", "period": "Oktyabr 2025 – Yanvar 2026", "bullets": ["Erkən mərhələ SaaS məhsullarını, maliyyə modellərini və artım strategiyalarını təhlil etdim.", "Texnologiya startapları arasında innovasiya tendensiyalarını araşdırdım."] }
     ],
-    "skillGroupLabels": { "frontend": "Frontend", "mobile": "Mobil", "backend": "Backend və API", "tools": "Alətlər və Digərləri" },
+    "skillGroupLabels": { "coreStack": "Əsas Texnologiyalar", "frontend": "Frontend", "backend": "Backend və Verilənlər Bazası", "mobile": "Mobil Development", "engineering": "Mühəndislik və Alətlər" },
     "languageLevels": { "Native": "Ana dil", "Fluent": "Sərbəst", "Intermediate": "Orta", "Basic": "Əsas" },
     "langNames": { "Azerbaijani": "Azərbaycan", "English": "İngilis", "Turkish": "Türk", "Russian": "Rus", "Latvian": "Latış" },
     "projects": {

@@ -151,6 +151,36 @@ img, video, iframe, object {
   height: auto;
 }
 
+/* Mobile app-like: horizontal scroll with snap + momentum */
+.scroll-x-snap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scroll-x-snap::-webkit-scrollbar {
+  display: none;
+}
+.scroll-x-snap > * {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Horizontal scroll — hide scrollbar, touch momentum */
+.scroll-x-touch {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scroll-x-touch::-webkit-scrollbar {
+  display: none;
+}
+
+
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,

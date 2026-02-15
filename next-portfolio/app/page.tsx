@@ -2,6 +2,7 @@
 
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import Languages from '@/components/Languages';
 import Skills from '@/components/Skills';
 import Work from '@/components/Work';
 import Contact from '@/components/Contact';
@@ -18,6 +19,7 @@ export default function Home() {
       <main role="main" aria-label="Main content">
         <Hero />
         <About />
+        <Languages />
         <Skills />
         <Work />
         <Contact />

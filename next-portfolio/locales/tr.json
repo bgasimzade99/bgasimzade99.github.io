@@ -28,10 +28,11 @@
     "letsTalk": "Konuşalım",
     "metrics": { "projects": "Tamamlanan proje", "team": "Ekip projesi", "production": "Gerçek kullanıcı teslimatı" },
     "education": "Eğitim ve Sertifikalar",
-    "languages": "Diller"
+    "languages": "Diller",
+    "languagesSubtitle": "Konuştuğum diller ve yeterlilik."
   },
   "profile": {
-    "headline": "Front-End ve Mobil Geliştirici",
+    "headline": "Junior Front-End ve Mobil Geliştirici",
     "education": [
       { "degree": "B.Sc. Bilgisayar Bilimi ve Bilgi Teknolojileri", "school": "Riga Teknik Üniversitesi", "dates": "2022 – 2025", "notes": "Not: 7.7" }
     ],
@@ -41,7 +42,7 @@
       { "role": "Kurucu ve Baş Geliştirici", "period": "2024 – Günümüz", "bullets": ["Convertonix ve BGTasks dahil AI destekli SaaS platformlarının geliştirilmesine öncülük ettim.", "React, Tailwind CSS ve Firebase ile ölçeklenebilir front-end sistemleri kurdum.", "Konseptten dağıtıma ve iterasyona kadar tam ürün döngüsünü yönettim.", "Startuplar ve küçük işletmeler için üretime hazır web platformları sundum."] },
       { "role": "Startup Araştırma Stajyeri", "period": "Ekim 2025 – Ocak 2026", "bullets": ["Erken aşama SaaS ürünlerini, finansman modellerini ve büyüme stratejilerini analiz ettim.", "Teknoloji girişimleri arasında inovasyon trendlerini araştırdım."] }
     ],
-    "skillGroupLabels": { "frontend": "Frontend", "mobile": "Mobil", "backend": "Backend ve API", "tools": "Araçlar ve Diğerleri" },
+    "skillGroupLabels": { "coreStack": "Temel Teknolojiler", "frontend": "Frontend Geliştirme", "backend": "Backend & Veritabanları", "mobile": "Mobil Geliştirme", "engineering": "Mühendislik & Araçlar" },
     "languageLevels": { "Native": "Ana dil", "Fluent": "Akıcı", "Intermediate": "Orta", "Basic": "Temel" },
     "langNames": { "Azerbaijani": "Azerbaycan", "English": "İngilizce", "Turkish": "Türkçe", "Russian": "Rusça", "Latvian": "Letonca" },
     "projects": {

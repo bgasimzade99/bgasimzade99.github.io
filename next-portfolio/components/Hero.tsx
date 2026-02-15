@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -38,11 +39,23 @@ export default function Hero() {
   const techBadges = profile.skillGroups[0]?.skills.slice(0, 4).map((s) => s.name) ?? ['React', 'Next.js', 'Tailwind'];
   const reduced = useReducedMotion();
   const { t } = useLanguage();
+  const [heroVisible, setHeroVisible] = useState(true);
+
+  useEffect(() => {
+    const el = document.getElementById('home');
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => setHeroVisible(e.isIntersecting),
+      { threshold: 0.1, rootMargin: '0px' }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-[#0a0a0f]"
+      className="relative min-h-screen flex flex-col md:flex-row md:items-center pt-14 pb-24 md:pb-0 md:pt-16 overflow-hidden bg-[#0a0a0f]"
       aria-label="Hero introduction"
     >
       {/* Background: gradient + orbs only */}
@@ -78,17 +91,17 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-16">
+      <div className="relative z-10 flex-1 flex flex-col justify-center md:justify-center w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 md:gap-12 lg:gap-16">
           <div className="flex-1 min-w-0 order-1 lg:order-1">
             <motion.div
               variants={reduced ? reducedVariants.container : container}
               initial="hidden"
               animate="visible"
             >
-              {/* Title with typing effect */}
+              {/* Title — compact on mobile, full on desktop */}
               <h1
-                className="text-4xl sm:text-5xl lg:text-[3.1rem] xl:text-[3.5rem] font-bold tracking-[-0.032em] leading-[1.15] text-white mb-5"
+                className="text-3xl sm:text-4xl lg:text-[3.1rem] xl:text-[3.5rem] font-bold tracking-[-0.032em] leading-[1.2] text-white mb-3 md:mb-5"
               >
                 <span className="block">
                   {reduced ? (
@@ -119,26 +132,27 @@ export default function Hero() {
                 </span>
               </h1>
 
-              {/* Subtitle — improved copy + typing phrase */}
+              {/* Subtitle — short on mobile, full on desktop */}
               <motion.p
                 variants={reduced ? reducedVariants.item : item}
-                className="text-lg sm:text-xl text-white/60 leading-[1.7] mb-10"
+                className="text-sm md:text-lg lg:text-xl text-white/60 leading-[1.6] mb-6 md:mb-10 max-w-md md:max-w-none"
               >
-                {String(t('hero.subtitle') ?? 'Building web and mobile apps with React and React Native.')} <HeroPhrase />
+                <span className="md:hidden">{String(t('hero.subtitle') ?? 'Building web and mobile apps.')}</span>
+                <span className="hidden md:inline">{String(t('hero.subtitle') ?? 'Building web and mobile apps with React and React Native.')} <HeroPhrase /></span>
               </motion.p>
 
               <motion.div
                 variants={reduced ? reducedVariants.item : item}
-                className="flex flex-wrap gap-3 mb-10"
+                className="flex flex-wrap gap-2.5 md:gap-3 mb-6 md:mb-10"
               >
                 <motion.a
                   href={profile.cvUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={reduced ? {} : { scale: 1.02, y: -2 }}
-                  whileTap={reduced ? {} : { scale: 0.98 }}
+                  whileTap={reduced ? {} : { scale: 0.96 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-teal-500/50 bg-teal-500/10 text-white font-medium hover:border-teal-500/70 hover:bg-teal-500/15 hover:shadow-[0_0_20px_rgba(20,184,166,0.15)] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+                  className="inline-flex items-center justify-center gap-2 min-h-[44px] px-5 md:px-6 py-3 md:py-3.5 rounded-xl border border-teal-500/50 bg-teal-500/10 text-white text-sm md:text-base font-medium hover:border-teal-500/70 hover:bg-teal-500/15 hover:shadow-[0_0_20px_rgba(20,184,166,0.15)] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -187,15 +201,15 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Portrait card */}
+          {/* Portrait card — compact circle on mobile, full card on desktop */}
           <motion.div
             initial={reduced ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: reduced ? 0 : 0.7, delay: reduced ? 0 : 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-shrink-0 order-2 lg:order-2 w-full max-w-full sm:max-w-[400px] lg:max-w-[520px] lg:w-[480px] xl:w-[500px] mx-auto lg:mx-0"
+            className="flex-shrink-0 order-2 lg:order-2 w-28 h-28 sm:w-36 sm:h-36 md:w-full md:h-auto md:max-w-[400px] lg:max-w-[520px] lg:w-[480px] xl:w-[500px] mx-auto lg:mx-0"
           >
             <div
-              className="relative overflow-hidden rounded-[24px] aspect-[4/5] w-full"
+              className="relative overflow-hidden rounded-full md:rounded-[24px] aspect-square md:aspect-[4/5] w-full"
               style={{
                 boxShadow: '0 24px 48px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)',
               }}
@@ -220,6 +234,28 @@ export default function Hero() {
               />
             </div>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Mobile: fixed bottom CTA bar — app onboarding style, hides when scrolled past hero */}
+      <div
+        className={`fixed bottom-0 left-0 right-0 z-40 md:hidden p-4 pb-6 pt-3 bg-[#0a0a0f]/95 backdrop-blur-xl border-t border-white/[0.06] transition-transform duration-300 ${
+          heroVisible ? 'translate-y-0' : 'translate-y-full'
+        }`}
+      >
+        <div className="flex gap-3 max-w-[1200px] mx-auto">
+          <Link
+            href="#projects"
+            className="flex-1 min-h-[48px] flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/[0.12] text-white font-semibold text-sm active:scale-[0.98] transition-transform"
+          >
+            {String(t('hero.viewProjects') ?? 'View Projects')}
+          </Link>
+          <Link
+            href="#contact"
+            className="flex-1 min-h-[48px] flex items-center justify-center rounded-xl bg-teal-500/90 text-white font-semibold text-sm active:scale-[0.98] transition-transform shadow-[0_0_20px_rgba(20,184,166,0.2)]"
+          >
+            {String(t('hero.contactMe') ?? 'Contact Me')}
+          </Link>
         </div>
       </div>
     </section>

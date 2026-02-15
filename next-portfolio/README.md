@@ -1,6 +1,6 @@
 # BGDev Portfolio
 
-Senior Front-End & Mobile Developer portfolio. Built with Next.js App Router, TypeScript, Tailwind CSS, and Framer Motion.
+Junior Front-End & Mobile Developer portfolio. Built with Next.js App Router, TypeScript, Tailwind CSS, and Framer Motion.
 
 ## File tree
 

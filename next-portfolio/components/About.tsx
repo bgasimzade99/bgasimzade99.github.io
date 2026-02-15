@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useRef } from 'react';
@@ -9,6 +10,7 @@ import { profile } from '@/content/profile';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function About() {
+  const [expanded, setExpanded] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
   const reduced = useReducedMotion();
@@ -28,7 +30,7 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="relative py-16 lg:py-20 border-t border-white/[0.05]"
+      className="relative py-10 md:py-16 lg:py-20 border-t border-white/[0.05]"
       aria-labelledby="about-heading"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -39,11 +41,22 @@ export default function About() {
             transition={trans(0.65)}
             viewport={{ once: true, margin: '-60px' }}
           >
-            <h2 id="about-heading" className="text-3xl lg:text-4xl font-bold tracking-[-0.028em] leading-[1.2] text-white mb-5">
+            <h2 id="about-heading" className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-[-0.028em] leading-[1.2] text-white mb-4 md:mb-5">
               {String(t('about.title') ?? 'About')}
             </h2>
-            <p className="text-base lg:text-lg text-white/62 leading-[1.7] mb-8">{String(t('about.summary') ?? profile.summary)}</p>
-            <ul className="space-y-2.5 mb-10">
+            <div className="text-sm md:text-base lg:text-lg text-white/62 leading-[1.6] md:leading-[1.7] mb-6 md:mb-8">
+              <p className={expanded ? '' : 'line-clamp-4 md:line-clamp-none'}>
+                {String(t('about.summary') ?? profile.summary)}
+              </p>
+              <button
+                type="button"
+                onClick={() => setExpanded(!expanded)}
+                className="text-teal-400/90 text-sm font-medium mt-2 min-h-[44px] md:hidden"
+              >
+                {expanded ? 'Show less' : 'Read more'}
+              </button>
+            </div>
+            <ul className="space-y-2 md:space-y-2.5 mb-6 md:mb-10">
               {highlights.map((item, i) => (
                 <motion.li
                   key={item}
@@ -69,13 +82,13 @@ export default function About() {
                 href={profile.cvUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/[0.1] bg-white/[0.03] text-white text-sm font-medium hover:border-white/[0.18] hover:bg-white/[0.05] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+                className="inline-flex items-center justify-center gap-2 min-h-[44px] px-5 py-2.5 rounded-xl border border-white/[0.1] bg-white/[0.03] text-white text-sm font-medium hover:border-white/[0.18] hover:bg-white/[0.05] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
               >
                 {String(t('about.downloadCV') ?? 'Download CV')}
               </Link>
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-teal-500/90 hover:bg-teal-500 text-white text-sm font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
+                className="inline-flex items-center justify-center gap-2 min-h-[44px] px-5 py-2.5 rounded-xl bg-teal-500/90 hover:bg-teal-500 text-white text-sm font-semibold transition-colors duration-200 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
               >
                 {String(t('about.letsTalk') ?? "Let's talk")}
               </Link>
@@ -148,33 +161,6 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Languages block */}
-        {profile.languages && profile.languages.length > 0 && (
-          <motion.div
-            initial={animate(0, 16)}
-            animate={isInView ? animate(1, 0) : animate(0, 16)}
-            transition={trans(0.45, 0.3)}
-            viewport={{ once: true }}
-            className="mt-12 pt-8 border-t border-white/[0.06]"
-          >
-            <h3 className="text-xl font-semibold text-white mb-4">{String(t('about.languages') ?? 'Languages')}</h3>
-            <div className="flex flex-wrap gap-2">
-              {profile.languages.map(({ lang, level }, i) => {
-                const levels = (t('profile.languageLevels') as unknown as Record<string, string>) ?? {};
-                const names = (t('profile.langNames') as unknown as Record<string, string>) ?? {};
-                return (
-                  <span
-                    key={`${lang}-${i}`}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.06] text-white/75 text-sm"
-                  >
-                    <span className="font-medium text-white/90">{names[lang] ?? lang}</span>
-                    <span className="text-white/45 text-xs uppercase">{levels[level] ?? level}</span>
-                  </span>
-                );
-              })}
-            </div>
-          </motion.div>
-        )}
       </div>
     </section>
   );
